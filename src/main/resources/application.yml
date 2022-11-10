@@ -1,0 +1,51 @@
+
+
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+  application:
+    name: My-OnlineJudge
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.01:3306/online_judge?serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 5
+      # ?????????????600000?10???
+      idle-timeout: 180000
+      # ????????????10
+      maximum-pool-size: 10
+      # ?????????????????????,????true
+      auto-commit: true
+      # ?????
+      pool-name: MyHikariCP
+      # ??????????????????0???????????1800000?30??
+      max-lifetime: 1800000
+      # ?????????,??30???30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+
+
+
+# Mybatis-Plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-enums-package: com.hrdate.oj.enums
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+
+token:
+  secretKey: huangrendi
+  expireTime: 3600000  # 24??
+
+

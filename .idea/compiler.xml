@@ -7,17 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="base" />
-        <module name="oj" />
+        <module name="My-OnlieJudge" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="base" target="1.8" />
+      <module name="My-OnlieJudge" target="1.8" />
       <module name="oj" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="My-OnlieJudge" options="-parameters" />
       <module name="base" options="-parameters" />
       <module name="oj" options="-parameters" />
     </option>

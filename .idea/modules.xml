@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/My-OnlieJudge.iml" filepath="$PROJECT_DIR$/.idea/My-OnlieJudge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oj/oj.iml" filepath="$PROJECT_DIR$/oj/oj.iml" />
     </modules>
   </component>
 </project>
