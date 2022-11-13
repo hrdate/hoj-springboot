@@ -30,10 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationEntryPointImpl authenticationEntryPoint;
     @Autowired
-    private AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
-    @Autowired
-    private AuthenticationFailHandlerImpl authenticationFailHandler;
-    @Autowired
     private LogoutSuccessHandlerImpl logoutSuccessHandler;
 
     @Autowired
@@ -74,40 +70,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // 配置登录注销路径
+        http.logout()
+                .logoutUrl("/logout")
+                .logoutSuccessHandler(logoutSuccessHandler)
         // 配置路由权限信息
-        http.authorizeRequests()
-                // /admin 开头的路径下的请求都需要经过JWT验证
-                .antMatchers("/admin/**").hasRole("admin")
-                // /user 开头的路径下的请求都需要经过JWT验证
-                .antMatchers("/api/**").hasRole("user")
-                .antMatchers("/public/**").permitAll()
-                //其它路径全部放行
-                .anyRequest().permitAll()
                 .and()
                 //自定义JWT过滤器
                 .addFilterBefore(new JwtLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JwtFilter(), UsernamePasswordAuthenticationFilter.class)
-                // 关闭跨站请求防护
+                // 关闭跨站请求防护  csrf 防御
                 .csrf().disable().exceptionHandling()
                 // 未登录处理
                 .authenticationEntryPoint(authenticationEntryPoint)
                 .and()
-                //禁用 csrf 防御
-                .csrf().disable()
+                .authorizeRequests()
+                // /admin 开头的路径下的请求都需要经过JWT验证
+                .antMatchers("/admin/**").hasRole("admin")
+                // /user 开头的路径下的请求都需要经过JWT验证
+                .antMatchers("/api/**").hasRole("user")
+                //其它路径全部放行
+                .anyRequest().permitAll()
+                .and()
                 //开启跨域支持
-                .cors().and()
+                .cors()
+                .and()
                 //基于Token，不创建会话
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        // 配置登录注销路径
-        http.formLogin()
-                .loginProcessingUrl("/login")
-                .successHandler(authenticationSuccessHandler)
-                .failureHandler(authenticationFailHandler)
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessHandler(logoutSuccessHandler);
+
     }
 
 }

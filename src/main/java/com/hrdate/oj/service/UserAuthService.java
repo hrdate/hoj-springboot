@@ -12,7 +12,9 @@ import com.hrdate.oj.utils.IpUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -50,8 +52,9 @@ public class UserAuthService extends ServiceImpl<UserAuthMapper, UserAuthModel> 
         }
         // 用户不存在
         if(userAuthModel == null){
-            throw new UsernameNotFoundException("用户名[" + username + "]不存在！");
+            throw new UsernameNotFoundException("用户名[" + username + "]不存在，请校验参数合法性！");
         }
+
         // 用户登录信息
         return convertUserDetail(userAuthModel, request);
     }
@@ -86,5 +89,18 @@ public class UserAuthService extends ServiceImpl<UserAuthMapper, UserAuthModel> 
                 .lastLoginTime(LocalDateTime.now())
                 .isDisable(userAuthModel.getIsDisable())
                 .build();
+    }
+
+    /**
+     * 更新用户信息，最近登陆的时间，ip
+     */
+    @Async
+    public void updateUserInfo() {
+        UserDetailDTO userDetailDTO = (UserDetailDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserAuthModel userAuth = this.getById(userDetailDTO.getId());
+        userAuth.setIpAddress(userDetailDTO.getIpAddress());
+        userAuth.setIpSource(userDetailDTO.getIpSource());
+        userAuth.setLastLoginTime(userDetailDTO.getLastLoginTime());
+        this.updateById(userAuth);
     }
 }

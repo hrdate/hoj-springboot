@@ -10,19 +10,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * @description: 用户登陆
+ * @description: 用户登陆表
  * @author: huangrendi
  * @date: 2022-11-09
  **/
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("t_user_auth")
-@FieldNameConstants
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldNameConstants
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("t_user_auth")
 public class UserAuthModel {
 
     /**
@@ -34,7 +34,7 @@ public class UserAuthModel {
     /**
      * 用户信息id
      */
-    @TableId(value = "user_info_id")
+    @TableField(value = "user_info_id")
     private Long userInfoId;
 
     /**

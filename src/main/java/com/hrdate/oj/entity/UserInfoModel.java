@@ -9,16 +9,16 @@ import lombok.experimental.FieldNameConstants;
 import java.time.LocalDateTime;
 
 /**
- * @description: 用户
+ * @description: 用户信息表
  * @author: huangrendi
  * @date: 2022-11-08
  **/
 
 @Data
+@FieldNameConstants
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("t_user_info")
-@FieldNameConstants
 public class UserInfoModel {
     private static final long serialVersionUID = 1L;
 
