@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_operation_log")
+@TableName(value = "t_operation_log", autoResultMap = true)
 public class OperationLogModel {
 
     /**

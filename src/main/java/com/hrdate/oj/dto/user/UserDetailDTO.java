@@ -1,5 +1,6 @@
 package com.hrdate.oj.dto.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,7 +44,7 @@ public class UserDetailDTO implements UserDetails {
     /**
      * 登录方式
      */
-    private Integer loginType;
+    private String loginType;
 
     /**
      * 用户名
@@ -121,22 +122,29 @@ public class UserDetailDTO implements UserDetails {
                 .collect(Collectors.toSet());
     }
 
-
+    @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    /**
+     * 账号没有锁住状态（true账号没有锁住，false账号锁住）
+     * @return
+     */
+    @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
-        return this.isDisable = false;
+        return !this.isDisable;
     }
 
+    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isEnabled() {
         return true;

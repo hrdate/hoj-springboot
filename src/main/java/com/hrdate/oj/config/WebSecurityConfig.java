@@ -31,9 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationEntryPointImpl authenticationEntryPoint;
     @Autowired
     private LogoutSuccessHandlerImpl logoutSuccessHandler;
-
     @Autowired
-    UserAuthService userAuthService;
+    private UserAuthService userAuthService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -71,7 +70,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // 配置登录注销路径
-        http.logout()
+        http
+                .formLogin()
+                .loginProcessingUrl("/login")
+                .and()
+                .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessHandler(logoutSuccessHandler)
         // 配置路由权限信息
@@ -97,7 +100,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 //基于Token，不创建会话
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
 
     }
 

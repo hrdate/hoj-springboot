@@ -19,4 +19,11 @@ public class TokenUtil {
     public static UserDetailDTO getLoginUser() {
         return (UserDetailDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
+    public static String getCurrentUsername() {
+        return getLoginUser().getUsername();
+    }
+
+    public static String getCurrentNickname() {
+        return getLoginUser().getNickname();
+    }
 }

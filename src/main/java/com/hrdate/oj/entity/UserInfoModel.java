@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_user_info")
+@TableName(value = "t_user_info", autoResultMap = true)
 public class UserInfoModel {
     private static final long serialVersionUID = 1L;
 

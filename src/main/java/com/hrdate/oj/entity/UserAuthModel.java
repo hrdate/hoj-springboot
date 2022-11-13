@@ -22,7 +22,7 @@ import java.util.List;
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_user_auth")
+@TableName(value = "t_user_auth", autoResultMap = true)
 public class UserAuthModel {
 
     /**

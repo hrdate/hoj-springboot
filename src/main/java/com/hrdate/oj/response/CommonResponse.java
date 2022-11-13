@@ -106,6 +106,10 @@ public class CommonResponse<T> {
         return resultTemplate(null, msg, code, messageData);
     }
 
+    public static CommonResponse failedResult(String msg, int code, Object rst , Map<String, String> messageData) {
+        return resultTemplate(rst, msg, code, messageData);
+    }
+
     public static CommonResponse succeedResult() {
         return succeedResult("succeed");
     }
