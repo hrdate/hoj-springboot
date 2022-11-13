@@ -6,7 +6,6 @@ import com.hrdate.oj.response.CommonResponse;
 import com.hrdate.oj.utils.IpUtil;
 import com.hrdate.oj.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -25,7 +24,6 @@ import static com.hrdate.oj.constant.CommonConst.APPLICATION_JSON;
 @Slf4j
 public class WebSecurityHandler implements HandlerInterceptor {
 
-    @Resource
     private RedisUtil redisUtil;
 
     @Override

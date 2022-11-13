@@ -1,12 +1,14 @@
 package com.hrdate.oj.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -14,17 +16,14 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class RedisUtil {
-    private final RedisTemplate<String, Object> redisTemplate;
+    @Resource(name = "redisTemplate")
+    private RedisTemplate<String, Object> redisTemplate;
     private static final String ENV_NAME_KEY = "spring.profiles";
     private static final String APPLICATION_NAME_PREFIX = "test-";
     private static final String KEY_PREFIX;
 
     static {
         KEY_PREFIX = APPLICATION_NAME_PREFIX + ENV_NAME_KEY + ":";
-    }
-
-    public RedisUtil() {
-        this.redisTemplate = SpringContextUtil.getBean("redisTemplate");
     }
 
     /** ----------------------------key操作(不全)---------------------------- **/
