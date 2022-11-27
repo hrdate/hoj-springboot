@@ -15,15 +15,20 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
-public class RedisUtil {
-    @Resource(name = "redisTemplate")
-    private RedisTemplate<String, Object> redisTemplate;
+public final class RedisUtil {
     private static final String ENV_NAME_KEY = "spring.profiles";
     private static final String APPLICATION_NAME_PREFIX = "test-";
     private static final String KEY_PREFIX;
 
     static {
         KEY_PREFIX = APPLICATION_NAME_PREFIX + ENV_NAME_KEY + ":";
+    }
+
+    private static RedisTemplate<String, Object> redisTemplate;
+
+    @Autowired
+    public void setRedisTemplate(RedisTemplate redisTemplate) {
+        RedisUtil.redisTemplate = redisTemplate;
     }
 
     /** ----------------------------key操作(不全)---------------------------- **/
@@ -109,6 +114,28 @@ public class RedisUtil {
     public void set(String key, Object value) {
         key = KEY_PREFIX + key;
         redisTemplate.opsForValue().set(key, value);
+    }
+
+    /**
+     * 设置指定 key 和 指定时间 的值
+     * @param key
+     * @param value
+     * @param time
+     */
+    public void set(String key, Object value, long time) {
+        key = KEY_PREFIX + key;
+        redisTemplate.opsForValue().set(key, value, time);
+    }
+
+    /**
+     * 设置指定 key 和 指定时间 的值
+     * @param key
+     * @param value
+     * @param time
+     */
+    public void set(String key, Object value, long time, TimeUnit timeUnit) {
+        key = KEY_PREFIX + key;
+        redisTemplate.opsForValue().set(key, value, time, timeUnit);
     }
 
     /**

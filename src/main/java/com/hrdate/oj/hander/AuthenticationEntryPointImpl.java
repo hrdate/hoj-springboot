@@ -1,7 +1,7 @@
 package com.hrdate.oj.hander;
 
 import com.alibaba.fastjson.JSON;
-import com.hrdate.oj.response.CommonResponse;
+import com.hrdate.oj.pojo.CommonResult;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
         httpServletResponse.getWriter()
                 .write(
                         JSON.toJSONString(
-                                CommonResponse.failedResult(UNAUTHORIZED.getMsg(), UNAUTHORIZED.getCode())
+                                CommonResult.failedResult(UNAUTHORIZED.getMsg(), UNAUTHORIZED.getCode())
                         )
                 );
     }

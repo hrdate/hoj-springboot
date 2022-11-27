@@ -1,10 +1,11 @@
 package com.hrdate.oj.config;
 
 import com.hrdate.oj.hander.*;
-import com.hrdate.oj.service.UserAuthService;
+import com.hrdate.oj.service.user.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +26,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -89,9 +91,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // /admin 开头的路径下的请求都需要经过JWT验证
-                .antMatchers("/admin/**").hasRole("admin")
+                .antMatchers("/api/admin/**").hasRole("admin")
                 // /user 开头的路径下的请求都需要经过JWT验证
-                .antMatchers("/api/**").hasRole("user")
+                .antMatchers("/api/user/**").hasRole("user")
                 //其它路径全部放行
                 .anyRequest().permitAll()
                 .and()

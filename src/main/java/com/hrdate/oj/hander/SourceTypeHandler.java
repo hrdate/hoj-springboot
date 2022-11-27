@@ -2,7 +2,6 @@ package com.hrdate.oj.hander;
 
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.hrdate.oj.dto.Source;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,4 +27,8 @@ public class SourceTypeHandler extends JacksonTypeHandler {
             throw new RuntimeException(e);
         }
     }
+}
+
+class  Source{
+    Source(){};
 }

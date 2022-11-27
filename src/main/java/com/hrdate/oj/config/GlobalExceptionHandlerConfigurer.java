@@ -3,7 +3,7 @@ package com.hrdate.oj.config;
 
 import com.hrdate.oj.enums.ReturnCode;
 import com.hrdate.oj.exceptions.ServiceException;
-import com.hrdate.oj.response.CommonResponse;
+import com.hrdate.oj.pojo.CommonResult;
 import com.hrdate.oj.utils.IReturnCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -35,13 +35,13 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandlerConfigurer {
 
     @ExceptionHandler(value = ServiceException.class)
-    public CommonResponse<?> onException(ServiceException e) {
+    public CommonResult<?> onException(ServiceException e) {
         log.error("exception : ", e);
         return createErrorResp(e.getCode(), e.getMessage());
     }
 
     @ExceptionHandler(value = Exception.class)
-    public CommonResponse<?> onException(Exception e, HttpServletRequest request) {
+    public CommonResult<?> onException(Exception e, HttpServletRequest request) {
         log.error("exception : ", e);
         String uri = request.getRequestURI();
         if (e instanceof HttpMediaTypeNotSupportedException) {
@@ -87,16 +87,16 @@ public class GlobalExceptionHandlerConfigurer {
         }
     }
 
-    private CommonResponse<?> createErrorResp(IReturnCode returnCode) {
-        return CommonResponse.failedResult(returnCode.getMsg(), returnCode.getCode());
+    private CommonResult<?> createErrorResp(IReturnCode returnCode) {
+        return CommonResult.failedResult(returnCode.getMsg(), returnCode.getCode());
     }
 
-    private CommonResponse<?> createErrorResp(int returnCode, String message) {
-        return CommonResponse.failedResult(message, returnCode);
+    private CommonResult<?> createErrorResp(int returnCode, String message) {
+        return CommonResult.failedResult(message, returnCode);
     }
 
-    private CommonResponse<?> createErrorResp(IReturnCode returnCode, String message) {
-        return CommonResponse.failedResult(StringUtils.isNotBlank(message) ? message : returnCode.getMsg(), returnCode.getCode());
+    private CommonResult<?> createErrorResp(IReturnCode returnCode, String message) {
+        return CommonResult.failedResult(StringUtils.isNotBlank(message) ? message : returnCode.getMsg(), returnCode.getCode());
     }
 
 }

@@ -2,8 +2,12 @@ package com.hrdate.oj.utils;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
 /**
  * 获取spring中的bean对象工具类
@@ -53,5 +57,14 @@ public class SpringContextUtil implements ApplicationContextAware {
      */
     public static Environment getEnvironment() {
         return applicationContext.getEnvironment();
+    }
+
+
+    public static <T extends Annotation> T getAnnotation(Method method, Class<?> clazz, Class<T> annotationClass) {
+        T annotation = AnnotationUtils.getAnnotation(method, annotationClass);
+        if (annotation == null) {
+            annotation = AnnotationUtils.findAnnotation(clazz, annotationClass);
+        }
+        return annotation;
     }
 }

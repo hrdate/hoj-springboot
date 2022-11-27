@@ -1,7 +1,7 @@
 package com.hrdate.oj.utils;
 
 
-import com.hrdate.oj.dto.user.UserDetailDTO;
+import com.hrdate.oj.pojo.dto.UserDetailDTO;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +25,10 @@ public class TokenUtil {
 
     public static String getCurrentNickname() {
         return getLoginUser().getNickname();
+    }
+
+    public static Boolean checkCurrentUserRole(String role) {
+        UserDetailDTO loginUser = getLoginUser();
+        return loginUser.getRoleList().contains(role.trim());
     }
 }

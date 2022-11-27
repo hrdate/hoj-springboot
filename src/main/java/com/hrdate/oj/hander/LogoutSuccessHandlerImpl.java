@@ -1,7 +1,7 @@
 package com.hrdate.oj.hander;
 
 import com.alibaba.fastjson.JSON;
-import com.hrdate.oj.response.CommonResponse;
+import com.hrdate.oj.pojo.CommonResult;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -24,7 +24,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException {
         httpServletResponse.setContentType(APPLICATION_JSON);
-        httpServletResponse.getWriter().write(JSON.toJSONString(CommonResponse.succeedResult()));
+        httpServletResponse.getWriter().write(JSON.toJSONString(CommonResult.succeedResult()));
     }
 
 }

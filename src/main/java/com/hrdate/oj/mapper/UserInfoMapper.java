@@ -1,7 +1,7 @@
 package com.hrdate.oj.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hrdate.oj.entity.UserInfoModel;
+import com.hrdate.oj.entity.user.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -11,5 +11,5 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 
 @Mapper
-public interface UserInfoMapper extends BaseMapper<UserInfoModel> {
+public interface UserInfoMapper extends BaseMapper<UserInfo> {
 }

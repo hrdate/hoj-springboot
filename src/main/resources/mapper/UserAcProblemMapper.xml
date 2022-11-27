@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrdate.oj.mapper.UserAcProblemMapper">
+
+    <select id="getACMRankList" resultType="com.hrdate.oj.pojo.vo.ACMRankVO">
+        SELECT
+            u.uid as uid,
+            u.nickname,u.username,
+            left(u.signature,100) as signature,
+            u.avatar,
+            u.title_name,
+            u.title_color,
+            (SELECT COUNT( DISTINCT pid ) FROM t_user_ac_problem WHERE uid = u.uid) AS ac,
+            (SELECT COUNT(uid) FROM t_judge WHERE uid=u.uid ) AS total
+        FROM t_user_info u
+        <where>
+            u.status = 0
+            <if test="uidList!=null">
+                AND u.uid in
+                <foreach collection="uidList" item="uid" open="(" separator="," close=")">
+                    #{uid}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY ac DESC,total ASC
+    </select>
+</mapper>

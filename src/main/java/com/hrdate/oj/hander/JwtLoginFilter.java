@@ -1,20 +1,17 @@
 package com.hrdate.oj.hander;
 
 import com.alibaba.fastjson.JSON;
-import com.hrdate.oj.response.CommonResponse;
-import com.hrdate.oj.dto.user.UserDetailDTO;
-import com.hrdate.oj.entity.UserAuthModel;
-import com.hrdate.oj.service.UserAuthService;
+import com.hrdate.oj.pojo.CommonResult;
+import com.hrdate.oj.pojo.dto.UserDetailDTO;
+import com.hrdate.oj.entity.user.UserAuth;
 import com.hrdate.oj.utils.JacksonUtil;
 import com.hrdate.oj.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -55,22 +52,22 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws AuthenticationException, IOException, ServletException {
         try {
-            UserAuthModel userAuthModel = JacksonUtil.readValue(httpServletRequest.getInputStream(), UserAuthModel.class);
+            UserAuth userAuth = JacksonUtil.readValue(httpServletRequest.getInputStream(), UserAuth.class);
 
-            log.info("尝试认证处理用户名:{}，密码:{}", userAuthModel.getUsername(), userAuthModel.getPassword());
+            log.info("尝试认证处理用户名:{}，密码:{}", userAuth.getUsername(), userAuth.getPassword());
             /**
              * 子类通过实现 attemptAuthentication 来尝试认证处理
              * 认证成功后，将会将成功认证的信息 Authentication 保存到线程本地 SecurityContext中
              */
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            userAuthModel.getUsername(), userAuthModel.getPassword()
+                            userAuth.getUsername(), userAuth.getPassword()
                     )
             );
         } catch (Exception exception) {
             log.error("尝试认证处理用户失败", exception);
             httpServletResponse.setContentType(APPLICATION_JSON);
-            httpServletResponse.getWriter().write(JSON.toJSONString(CommonResponse.failedResult("非法请求", FORBIDDEN.getCode(), exception.getMessage() , null)));
+            httpServletResponse.getWriter().write(JSON.toJSONString(CommonResult.failedResult("非法请求", FORBIDDEN.getCode(), exception.getMessage() , null)));
         }
         return null;
     }
@@ -96,7 +93,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
         Map<String, Object> map = new HashMap<>();
         map.put("userDetail", userDetailDTO);
         map.put("token", jwt);
-        response.getWriter().write(JSON.toJSONString(CommonResponse.succeedResult(map)));
+        response.getWriter().write(JSON.toJSONString(CommonResult.succeedResult(map)));
 
     }
 
@@ -124,7 +121,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
             message = "用户名或密码错误:" + message;
         }
         response.setContentType(APPLICATION_JSON);
-        response.getWriter().write(JSON.toJSONString(CommonResponse.failedResult(message , UNAUTHORIZED.getCode())));
+        response.getWriter().write(JSON.toJSONString(CommonResult.failedResult(message , UNAUTHORIZED.getCode())));
 
     }
 

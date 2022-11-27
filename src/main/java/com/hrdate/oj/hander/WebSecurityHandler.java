@@ -2,7 +2,7 @@ package com.hrdate.oj.hander;
 
 import com.alibaba.fastjson.JSON;
 import com.hrdate.oj.annotation.AccessLimit;
-import com.hrdate.oj.response.CommonResponse;
+import com.hrdate.oj.pojo.CommonResult;
 import com.hrdate.oj.utils.IpUtil;
 import com.hrdate.oj.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,6 @@ import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,7 +42,7 @@ public class WebSecurityHandler implements HandlerInterceptor {
                     // 此操作代表获取该key对应的值自增1后的结果
                     long q = redisUtil.incrExpire(key, seconds);
                     if (q > maxCount) {
-                        render(httpServletResponse, CommonResponse.failedResult("请求过于频繁，请稍候再试"));
+                        render(httpServletResponse, CommonResult.failedResult("请求过于频繁，请稍候再试"));
                         log.warn(key + "请求次数超过每" + seconds + "秒" + maxCount + "次");
                         return false;
                     }
@@ -57,7 +56,7 @@ public class WebSecurityHandler implements HandlerInterceptor {
         return true;
     }
 
-    private void render(HttpServletResponse response, CommonResponse<?> result) throws Exception {
+    private void render(HttpServletResponse response, CommonResult<?> result) throws Exception {
         response.setContentType(APPLICATION_JSON);
         response.getWriter().write(JSON.toJSONString(result));
     }
