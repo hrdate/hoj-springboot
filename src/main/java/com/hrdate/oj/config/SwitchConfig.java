@@ -2,6 +2,7 @@ package com.hrdate.oj.config;
 
 import lombok.Data;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  **/
 
 @Data
+@Component
 public class SwitchConfig {
 
     private List<String> hduUsernameList = new ArrayList<>();

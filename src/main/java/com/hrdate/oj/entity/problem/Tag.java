@@ -35,6 +35,9 @@ public class Tag implements Serializable {
     @ApiModelProperty(value = "标签颜色")
     private String color;
 
+    @ApiModelProperty(value = "该语言属于哪个oj，自身oj用ME")
+    private String oj;
+
     @ApiModelProperty(value = "创建时间")
     @TableField(value = "create_time" , fill = FieldFill.INSERT)
     private LocalDateTime createTime;

@@ -2,8 +2,7 @@ package com.hrdate.oj.entity.user;
 
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
 import lombok.experimental.FieldNameConstants;
 
@@ -16,6 +15,9 @@ import java.time.LocalDateTime;
  **/
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

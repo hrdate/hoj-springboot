@@ -1,6 +1,8 @@
 package com.hrdate.oj.utils;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,6 +18,8 @@ import java.util.Map;
  * @author 11921
  */
 @SuppressWarnings("all")
+
+@Slf4j
 public class IpUtil {
 
     /**
@@ -56,6 +60,7 @@ public class IpUtil {
             }
         } catch (Exception e) {
             ipAddress = "";
+            log.error("获取用户ip地址异常", e);
         }
         return ipAddress;
     }
@@ -80,8 +85,20 @@ public class IpUtil {
             List<Map<String, String>> data = (List) map.get("data");
             return data.get(0).get("location");
         } catch (Exception e) {
+            log.error("解析ip地址异常", e);
             return "";
         }
+    }
+
+    public static String getServiceIp() {
+        InetAddress address = null;
+        try {
+            address = InetAddress.getLocalHost();
+            return address.getHostAddress(); //返回IP地址
+        } catch (UnknownHostException e) {
+            log.error("本地ip获取异常-->{}", e);
+        }
+        return "";
     }
 
 //    /**

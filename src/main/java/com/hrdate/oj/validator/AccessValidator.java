@@ -11,13 +11,15 @@ import org.springframework.stereotype.Component;
  * @Author Himit_ZH
  * @Date 2022/5/9
  */
+@Component
 public class AccessValidator {
 
 //    @Autowired
 //    private NacosSwitchConfig nacosSwitchConfig;
-    private static SwitchConfig switchConfig = new SwitchConfig();
+    @Autowired
+    private SwitchConfig switchConfig;
 
-    public static void validateAccess(OJAccessEnum hojAccessEnum) throws ServiceException {
+    public void validateAccess(OJAccessEnum hojAccessEnum) throws ServiceException {
         switch (hojAccessEnum) {
             case PUBLIC_DISCUSSION:
                 if (!switchConfig.getOpenPublicDiscussion()) {

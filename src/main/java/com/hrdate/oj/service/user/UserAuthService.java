@@ -3,6 +3,8 @@ package com.hrdate.oj.service.user;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.hrdate.oj.exceptions.ServiceException;
+import com.hrdate.oj.pojo.dto.RegisterDTO;
 import com.hrdate.oj.pojo.dto.UserDetailDTO;
 import com.hrdate.oj.entity.user.UserAuth;
 import com.hrdate.oj.entity.user.UserInfo;
@@ -16,10 +18,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description: 用户
@@ -109,5 +114,34 @@ public class UserAuthService extends ServiceImpl<UserAuthMapper, UserAuth> imple
         userAuth.setIpSource(userDetailDTO.getIpSource());
         userAuth.setLastLoginTime(userDetailDTO.getLastLoginTime());
         this.updateById(userAuth);
+    }
+
+    /**
+     * 添加一个普通用户
+     * @param registerDto
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public boolean addUser(RegisterDTO registerDto) {
+        UserAuth one = this.lambdaQuery().eq(UserAuth::getUsername, registerDto.getUsername()).one();
+        if(one != null) {
+            throw new ServiceException("用户名已存在，注册失败，请更换!");
+        }
+        List<String> roleList = new ArrayList<>();
+        roleList.add("user");
+        UserAuth userAuth = UserAuth.builder()
+                .uid(registerDto.getUid())
+                .username(registerDto.getUsername())
+                .password(registerDto.getPassword())
+                .email(registerDto.getEmail())
+                .ipAddress(IpUtil.getIpAddress(request))
+                .ipSource(IpUtil.getIpSource(IpUtil.getIpAddress(request)))
+                .RoleList(roleList)
+                .lastLoginTime(null)
+                .isDisable(false)
+                .build();
+        boolean addUserAuth = this.save(userAuth);
+        boolean addUserInfo = userInfoService.addUser(registerDto);
+        return addUserAuth && addUserInfo;
     }
 }

@@ -45,7 +45,6 @@ public class UserAuth {
     @TableField(value = "username")
     private String username;
 
-
     @ApiModelProperty(value = "密码")
     @TableField(value = "password")
     private String password;

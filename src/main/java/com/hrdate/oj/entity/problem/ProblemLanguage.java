@@ -26,8 +26,10 @@ public class ProblemLanguage {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty(value = "题目id")
     private Long pid;
 
+    @ApiModelProperty(value = "语言id")
     private Long lid;
 
     @ApiModelProperty(value = "创建时间")

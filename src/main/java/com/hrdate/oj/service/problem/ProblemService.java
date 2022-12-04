@@ -43,6 +43,8 @@ import java.util.stream.Collectors;
 public class ProblemService extends ServiceImpl<ProblemMapper, Problem> {
 
     @Autowired
+    private AccessValidator accessValidator;
+    @Autowired
     private ProblemMapper problemMapper;
     @Autowired
     private JudgeService judgeService;
@@ -217,7 +219,7 @@ public class ProblemService extends ServiceImpl<ProblemMapper, Problem> {
             // 是否为题目管理员
             if (!isAdmin) {
                 try {
-                    AccessValidator.validateAccess(OJAccessEnum.HIDE_NON_CONTEST_SUBMISSION_CODE);
+                    accessValidator.validateAccess(OJAccessEnum.HIDE_NON_CONTEST_SUBMISSION_CODE);
                 } catch (ServiceException e) {
                     return "Because the super administrator has enabled " +
                             "the function of not viewing the submitted code outside the contest of master station, \n" +
