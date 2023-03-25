@@ -7,19 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="My-OnlieJudge" />
+        <module name="hoj-backend" />
+        <module name="hoj-judgeServer" />
+        <module name="hoj-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="base" target="1.8" />
-      <module name="My-OnlieJudge" target="1.8" />
+      <module name="hoj-api" target="1.8" />
+      <module name="hoj-backend" target="1.8" />
+      <module name="hoj-judgeServer" target="1.8" />
+      <module name="hoj-springboot" target="1.8" />
       <module name="oj" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="My-OnlieJudge" options="-parameters" />
       <module name="base" options="-parameters" />
+      <module name="hoj-springboot" options="" />
       <module name="oj" options="-parameters" />
     </option>
   </component>

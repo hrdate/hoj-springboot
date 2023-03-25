@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/My-OnlieJudge.iml" filepath="$PROJECT_DIR$/.idea/My-OnlieJudge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/hoj-api.iml" filepath="$PROJECT_DIR$/api/hoj-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataBackup/hoj-backend.iml" filepath="$PROJECT_DIR$/DataBackup/hoj-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JudgeServer/hoj-judgeServer.iml" filepath="$PROJECT_DIR$/JudgeServer/hoj-judgeServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hoj-springboot.iml" filepath="$PROJECT_DIR$/.idea/hoj-springboot.iml" />
     </modules>
   </component>
 </project>
