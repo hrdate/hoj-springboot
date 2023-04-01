@@ -1,13 +1,13 @@
 # redis配置
-redis-host: 127.0.0.1
+redis-host: 192.168.42.131
 redis-port: 6379
 redis-password: hoj123456
 
 # 本服务连接mysql的地址和端口号
-mysql-host: 127.0.0.1
+mysql-host: 192.168.42.131
 mysql-port: 3306
 # mysql的公网地址和端口号
-mysql-public-host: 127.0.0.1
+mysql-public-host: 192.168.42.131
 mysql-public-port: 3306
 mysql-username: root
 mysql-password: hoj123456
@@ -35,8 +35,8 @@ email-username: your_email_username
 email-password: your_email_password
 
 # 以下为各个remote judge平台的账号配置
-hdu-username-list:
-hdu-password-list:
+hdu-username-list: username1,username2
+hdu-password-list: password1,password2
 poj-username-list:
 poj-password-list:
 cf-username-list:
@@ -116,5 +116,3 @@ logging:
           client:
             naming: info
     root: info
-  file:
-    path: ./hoj_backend

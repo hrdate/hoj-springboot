@@ -20,7 +20,7 @@ public class WebConfig {
 
     private Boolean emailSsl = true;
 
-    private String emailBGImg = "https://cdn.jsdelivr.net/gh/HimitZH/CDN/images/HCODE.png";
+    private String emailBGImg = "https://gitee.com/diloveyu/image-cloud/blob/master/vj.jpg";
 
     // 网站前端显示配置
     private String baseUrl = "http://" + IpUtils.getServiceIp();
@@ -39,5 +39,5 @@ public class WebConfig {
 
     private String projectName = "HOJ";
 
-    private String projectUrl = "https://gitee.com/himitzh0730/hoj";
+    private String projectUrl = "https://github.com/hrdate/My-OnlieJudge";
 }

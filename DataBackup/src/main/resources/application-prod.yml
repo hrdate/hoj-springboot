@@ -37,8 +37,8 @@ email-username: ${EMAIL_USERNAME:your_email_username}
 email-password: ${EMAIL_PASSWORD:your_email_password}
 
 # 以下为各个remote judge平台的账号配置
-hdu-username-list: ${HDU_ACCOUNT_USERNAME_LIST:}
-hdu-password-list: ${HDU_ACCOUNT_PASSWORD_LIST:}
+hdu-username-list: ${HDU_ACCOUNT_USERNAME_LIST:username1,username2}
+hdu-password-list: ${HDU_ACCOUNT_PASSWORD_LIST:password1,password2}
 poj-username-list: ${POJ_ACCOUNT_USERNAME_LIST:}
 poj-password-list: ${POJ_ACCOUNT_PASSWORD_LIST:}
 cf-username-list: ${CF_ACCOUNT_USERNAME_LIST:}
@@ -120,5 +120,3 @@ logging:
       gargoylesoftware: off
     root: info
   config: classpath:logback-spring.xml
-  file:
-    path: /hoj/log/backend
