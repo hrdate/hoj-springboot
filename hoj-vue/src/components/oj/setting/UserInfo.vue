@@ -367,10 +367,10 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   height: 32px;
 }
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-size: 12px;
   line-height: 20px;
 }
@@ -387,7 +387,7 @@ export default {
   margin-bottom: 20px;
 }
 
-/deep/.upload-container .el-upload {
+::v-deep.upload-container .el-upload {
   border: 1px dashed #d9d9d9;
   border-radius: 6px;
   cursor: pointer;
@@ -395,7 +395,7 @@ export default {
   overflow: hidden;
   width: 320px;
 }
-/deep/.upload-container .el-upload:hover {
+::v-deep.upload-container .el-upload:hover {
   border-color: #409eff;
 }
 .inline {
@@ -430,10 +430,10 @@ export default {
   vertical-align: top;
   padding: 10px;
 }
-/deep/ .el-dialog__body {
+::v-deep .el-dialog__body {
   padding: 0;
 }
-/deep/ .el-upload-dragger {
+::v-deep .el-upload-dragger {
   width: 100%;
   height: 100%;
 }

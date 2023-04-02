@@ -634,12 +634,12 @@ export default {
   height: 400px;
   width: 100%;
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 20px !important;
   padding-top: 0 !important;
 }
 @media screen and (max-width: 768px) {
-  /deep/.el-card__body {
+  ::v-deep.el-card__body {
     padding: 0 !important;
   }
 }
@@ -663,14 +663,14 @@ export default {
   margin: 0;
   padding: 0;
 }
-/deep/.vxe-table .vxe-header--column:not(.col--ellipsis) {
+::v-deep.vxe-table .vxe-header--column:not(.col--ellipsis) {
   padding: 4px 0 !important;
 }
-/deep/.vxe-table .vxe-body--column {
+::v-deep.vxe-table .vxe-body--column {
   line-height: 20px !important;
   padding: 0px !important;
 }
-/deep/.vxe-body--column {
+::v-deep.vxe-body--column {
   min-width: 0;
   height: 48px;
   box-sizing: border-box;
@@ -689,7 +689,7 @@ a.emphasis:hover {
   font-size: 12px;
 }
 
-/deep/.vxe-table .vxe-cell {
+::v-deep.vxe-table .vxe-cell {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }

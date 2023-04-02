@@ -82,10 +82,10 @@ export default {
 .contest-attention-item .countdown-text {
   color: #777;
 }
-/deep/.el-card__header {
+::v-deep.el-card__header {
     padding: 10px 20px;
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
     padding: 10px 20px;
 }
 </style>

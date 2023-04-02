@@ -118,28 +118,28 @@ export default {
 .msg-title {
   background-image: linear-gradient(135deg, #2afadf 10%, #4c83ff 100%);
 }
-/deep/.el-alert__title {
+::v-deep.el-alert__title {
   font-size: 18px !important;
   line-height: 18px !important;
 }
-/deep/.el-tabs__item {
+::v-deep.el-tabs__item {
   text-align: center !important;
 }
-/deep/.el-tabs__item {
+::v-deep.el-tabs__item {
   padding: 0 40px;
   line-height: 53px;
   height: 53px;
   font-weight: 700;
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 15px;
   padding-bottom: 10px;
 }
 @media only screen and (max-width: 767px) {
-  /deep/.el-tabs__item {
+  ::v-deep.el-tabs__item {
     padding: 0 10px;
   }
-  /deep/.el-tabs__content {
+  ::v-deep.el-tabs__content {
     padding: 12px;
     padding-left: 0px !important;
   }

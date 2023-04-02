@@ -166,7 +166,7 @@ export default {
   width: 450px;
   margin: 0 auto;
 }
-/deep/ .el-card {
+::v-deep .el-card {
   border: 1px solid skyblue;
   border-radius: 8px;
 }

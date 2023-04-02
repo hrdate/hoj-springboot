@@ -422,13 +422,13 @@ export default {
   margin-top: 10px;
 }
 
-/deep/.el-collapse-item__header{
+::v-deep.el-collapse-item__header{
   font-weight: bolder !important;
   height:40px !important;
   line-height: 40px !important;
   font-size: 15px !important;
 }
-/deep/.el-collapse-item__content {
+::v-deep.el-collapse-item__content {
   padding-bottom: 10px !important;
 }
 </style>

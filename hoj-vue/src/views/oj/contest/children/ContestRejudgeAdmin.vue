@@ -103,7 +103,7 @@ export default {
 </script>
 <style scoped>
 @media screen and (min-width: 1050px) {
-  /deep/ .vxe-table--body-wrapper {
+  ::v-deep .vxe-table--body-wrapper {
     overflow-x: hidden !important;
   }
 }

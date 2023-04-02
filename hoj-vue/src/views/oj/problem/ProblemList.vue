@@ -397,7 +397,7 @@ export default {
     this.PROBLEM_LEVEL = Object.assign({}, PROBLEM_LEVEL);
     this.JUDGE_STATUS_RESERVE = Object.assign({}, JUDGE_STATUS_RESERVE);
     this.JUDGE_STATUS = Object.assign({}, JUDGE_STATUS);
-    this.REMOTE_OJ = Object.assign({}, REMOTE_OJ);
+    // this.REMOTE_OJ = Object.assign({}, REMOTE_OJ);
     this.currentProblemTitle = this.$i18n.t('m.Touch_Get_Status');
     // 初始化
     this.problemRecord = [
@@ -795,28 +795,28 @@ section {
   }
 }
 
-/deep/.el-tag--dark {
+::v-deep.el-tag--dark {
   border-color: #d9ecff;
 }
-/deep/.tag-btn {
+::v-deep.tag-btn {
   margin-left: 4px !important;
   margin-top: 4px;
 }
-/deep/.vxe-checkbox .vxe-checkbox--label {
+::v-deep.vxe-checkbox .vxe-checkbox--label {
   overflow: unset !important;
 }
-/deep/ .vxe-input {
+::v-deep .vxe-input {
   width: 100%;
 }
 #pick-one {
   margin-top: 10px;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
 @media screen and (min-width: 1200px) {
-  /deep/ .el-card__body {
+  ::v-deep .el-card__body {
     padding-top: 0px;
     margin-top: 5px;
   }
@@ -835,18 +835,18 @@ ul {
 }
 
 @media screen and (min-width: 1050px) {
-  /deep/ .vxe-table--body-wrapper {
+  ::v-deep .vxe-table--body-wrapper {
     overflow-x: hidden !important;
   }
 }
 
-/deep/.el-collapse-item__header{
+::v-deep.el-collapse-item__header{
   font-weight: bolder !important;
   height: 38px !important;
   line-height: 38px !important;
   font-size: 15px !important;
 }
-/deep/.el-collapse-item__content {
+::v-deep.el-collapse-item__content {
   padding-bottom: 10px !important;
 }
 </style>

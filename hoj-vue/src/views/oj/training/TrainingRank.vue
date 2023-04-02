@@ -387,7 +387,7 @@ export default {
 .rank-title {
   text-align: center;
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 20px !important;
 }
 .training-rank-search{
@@ -412,7 +412,7 @@ export default {
   padding: 0;
 }
 @media screen and (max-width: 768px) {
-  /deep/.el-card__body {
+  ::v-deep.el-card__body {
     padding: 0 !important;
   }
 }
@@ -423,18 +423,18 @@ a.emphasis:hover {
   color: #2d8cf0 !important;
 }
 
-/deep/.vxe-table .vxe-header--column:not(.col--ellipsis) {
+::v-deep.vxe-table .vxe-header--column:not(.col--ellipsis) {
   padding: 4px 0 !important;
 }
-/deep/.vxe-table .vxe-body--column {
+::v-deep.vxe-table .vxe-body--column {
   padding: 4px 0 !important;
   line-height: 20px !important;
 }
-/deep/.vxe-table .vxe-body--column:not(.col--ellipsis) {
+::v-deep.vxe-table .vxe-body--column:not(.col--ellipsis) {
   line-height: 20px !important;
   padding: 0 !important;
 }
-/deep/.vxe-body--column {
+::v-deep.vxe-body--column {
   min-width: 0;
   height: 51px !important;
   box-sizing: border-box;
@@ -442,7 +442,7 @@ a.emphasis:hover {
   text-overflow: ellipsis;
   vertical-align: middle;
 }
-/deep/.vxe-table .vxe-cell {
+::v-deep.vxe-table .vxe-cell {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }

@@ -1821,7 +1821,7 @@ export default {
 </script>
 
 <style scoped>
-/deep/.el-form-item__label {
+::v-deep.el-form-item__label {
   padding: 0 !important;
 }
 .el-form-item {

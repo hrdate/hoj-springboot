@@ -227,7 +227,7 @@ ul {
     margin: 0 -1%;
   }
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 5px 0px !important;
 }
 .dataNav {

@@ -629,15 +629,15 @@ export default {
   }
 }
 
-/deep/.el-slider__button {
+::v-deep.el-slider__button {
   width: 20px !important;
   height: 20px !important;
   background-color: #409eff !important;
 }
-/deep/.el-slider__button-wrapper {
+::v-deep.el-slider__button-wrapper {
   z-index: 500;
 }
-/deep/.el-slider__bar {
+::v-deep.el-slider__bar {
   height: 10px !important;
   background-color: #09be24 !important;
 }
@@ -652,7 +652,7 @@ export default {
   font-size: 18px;
 }
 
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 15px !important;
   padding-top: 20px !important;
 }
@@ -663,21 +663,21 @@ export default {
   padding: 0;
 }
 
-/deep/.vxe-table .vxe-header--column:not(.col--ellipsis) {
+::v-deep.vxe-table .vxe-header--column:not(.col--ellipsis) {
   padding: 4px 0 !important;
 }
 
-/deep/.vxe-table .vxe-body--column {
+::v-deep.vxe-table .vxe-body--column {
   padding: 4px 0 !important;
   line-height: 20px !important;
 }
 
-/deep/.vxe-table .vxe-body--column:not(.col--ellipsis) {
+::v-deep.vxe-table .vxe-body--column:not(.col--ellipsis) {
   line-height: 20px !important;
   padding: 0 !important;
 }
 
-/deep/.vxe-body--column {
+::v-deep.vxe-body--column {
   min-width: 0;
   height: 48px;
   box-sizing: border-box;
@@ -690,7 +690,7 @@ export default {
   font-size: 12px;
 }
 
-/deep/.vxe-table .vxe-cell {
+::v-deep.vxe-table .vxe-cell {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }

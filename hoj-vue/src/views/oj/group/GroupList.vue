@@ -628,11 +628,11 @@ section {
   font-weight: 600;
 }
 
-/deep/ .Public .el-card {
+::v-deep .Public .el-card {
   border-color: rgba(103, 194, 58, 0.5);
 }
 
-/deep/ .Public .el-card__header {
+::v-deep .Public .el-card__header {
   background-color: rgba(103, 194, 58, 0.2);
 }
 
@@ -640,11 +640,11 @@ section {
   color: rgb(103, 194, 58);
 }
 
-/deep/ .Protected .el-card {
+::v-deep .Protected .el-card {
   border-color: rgba(230, 162, 60, 0.5);
 }
 
-/deep/ .Protected .el-card__header {
+::v-deep .Protected .el-card__header {
   background-color: rgba(230, 162, 60, 0.2);
 }
 
@@ -652,11 +652,11 @@ section {
   color: rgb(230, 162, 60);
 }
 
-/deep/ .Private .el-card {
+::v-deep .Private .el-card {
   border-color: rgba(245, 108, 108, 0.5);
 }
 
-/deep/ .Private .el-card__header {
+::v-deep .Private .el-card__header {
   background-color: rgba(245, 108, 108, 0.2);
 }
 
@@ -681,11 +681,11 @@ section {
 .group-auth:hover {
   cursor: pointer;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   padding: 10px;
   margin-bottom: 4px;
 }
-/deep/ .el-divider--horizontal {
+::v-deep .el-divider--horizontal {
   margin: 0;
 }
 </style>

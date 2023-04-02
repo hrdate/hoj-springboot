@@ -98,48 +98,48 @@ const adminRoutes= [
           component: Tag,
           meta: { title:'Admin Tag'},
         },
-        {
-          path: 'group-problem/apply',
-          name: 'admin-group-apply-problem',
-          component: AdminGroupProblemList,
-          meta: { title:'Admin Group Apply Problem'},
-        },
+        // {
+        //   path: 'group-problem/apply',
+        //   name: 'admin-group-apply-problem',
+        //   component: AdminGroupProblemList,
+        //   meta: { title:'Admin Group Apply Problem'},
+        // },
         {
           path: 'problem/batch-operation',
           name: 'admin-problem_batch_operation',
           component: ProblemImportAndExport,
           meta: { title:'Export Import Problem'},
         },
-        {
-          path: 'training/create',
-          name: 'admin-create-training',
-          component: Training,
-          meta: { title:'Create Training'},
-        },
-        {
-          path: 'training',
-          name: 'admin-training-list',
-          component: TrainingList,
-          meta: { title:'Training List'}
-        },
-        {
-          path: 'training/:trainingId/edit',
-          name: 'admin-edit-training',
-          component: Training,
-          meta: { title:'Edit Training'}
-        },
-        {
-          path: 'training/:trainingId/problems',
-          name: 'admin-training-problem-list',
-          component: TrainingProblemList,
-          meta: { title:'Training Problem List'}
-        },
-        {
-          path: 'training/category',
-          name: 'admin-training-category',
-          component: TrainingCategory,
-          meta: { title:'Admin Category'}
-        },
+        // {
+        //   path: 'training/create',
+        //   name: 'admin-create-training',
+        //   component: Training,
+        //   meta: { title:'Create Training'},
+        // },
+        // {
+        //   path: 'training',
+        //   name: 'admin-training-list',
+        //   component: TrainingList,
+        //   meta: { title:'Training List'}
+        // },
+        // {
+        //   path: 'training/:trainingId/edit',
+        //   name: 'admin-edit-training',
+        //   component: Training,
+        //   meta: { title:'Edit Training'}
+        // },
+        // {
+        //   path: 'training/:trainingId/problems',
+        //   name: 'admin-training-problem-list',
+        //   component: TrainingProblemList,
+        //   meta: { title:'Training Problem List'}
+        // },
+        // {
+        //   path: 'training/category',
+        //   name: 'admin-training-category',
+        //   component: TrainingCategory,
+        //   meta: { title:'Admin Category'}
+        // },
         {
           path: 'contest/create',
           name: 'admin-create-contest',

@@ -1,3 +1,16 @@
+mybatis-plus:
+  mapper-locations: classpath*:top/hcode/hoj/mapper/xml/**Mapper.xml
+  type-aliases-package: top.hcode.hoj.pojo.entity
+  configuration:
+    cache-enabled: true
+  # 关闭打印 mybatis-plus 的 LOGO
+  global-config:
+    banner: false
+
+# 消费者将要去访问的微服务名称（注册成功进入nacos的微服务提供者）
+service-url:
+  name: hoj-judgeserver # 服务名
+
 # redis配置
 redis-host: 192.168.42.131
 redis-port: 6379

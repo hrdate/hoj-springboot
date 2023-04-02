@@ -31,10 +31,10 @@
               ><i class="el-icon-s-grid"></i
               >{{ $t('m.NavBar_Problem') }}</el-menu-item
             >
-            <el-menu-item index="/training"
+            <!-- <el-menu-item index="/training"
               ><i class="el-icon-s-claim"></i
               >{{ $t('m.NavBar_Training') }}</el-menu-item
-            >
+            > -->
             <el-menu-item index="/contest"
               ><i class="el-icon-trophy"></i
               >{{ $t('m.NavBar_Contest') }}</el-menu-item
@@ -59,12 +59,12 @@
               ><i class="el-icon-s-comment"></i
               >{{ $t('m.NavBar_Discussion') }}</el-menu-item
             >
-            <el-menu-item index="/group"
+            <!-- <el-menu-item index="/group"
               ><i
                 class="fa fa-users navbar-icon"
               ></i
               >{{ $t('m.NavBar_Group') }}</el-menu-item
-            >
+            > -->
             <el-submenu index="about">
               <template slot="title"
                 ><i class="el-icon-info"></i>{{ $t('m.NavBar_About') }}</template
@@ -77,7 +77,7 @@
               }}</el-menu-item>
             </el-submenu>
         </template>
-        <template v-else-if="mode == 'training'">
+        <!-- <template v-else-if="mode == 'training'">
           <el-menu-item index="/home"
               ><i class="el-icon-s-home"></i>{{ $t('m.NavBar_Back_Home') }}</el-menu-item
             >
@@ -94,7 +94,7 @@
             <el-menu-item :index="getTrainingProblemListPath()"
               ><i class="fa fa-list navbar-icon"></i>{{ $t('m.Problem_List') }}</el-menu-item
             >
-        </template>
+        </template> -->
         <template v-else-if="mode == 'contest'">
           <el-menu-item index="/home"
               ><i class="el-icon-s-home"></i>{{ $t('m.NavBar_Back_Home') }}</el-menu-item
@@ -448,7 +448,7 @@
             }}</mu-list-item-title>
           </mu-list-item>
 
-          <mu-list-item
+          <!-- <mu-list-item
             button
             to="/training"
             @click="opendrawer = !opendrawer"
@@ -460,7 +460,7 @@
             <mu-list-item-title>{{
               $t('m.NavBar_Training')
             }}</mu-list-item-title>
-          </mu-list-item>
+          </mu-list-item> -->
 
           <mu-list-item
             button
@@ -918,17 +918,7 @@ export default {
   margin-right: 10px;
   margin-top: 12px;
 }
-/deep/ .el-dialog {
-  border-radius: 10px !important;
-  text-align: center;
-}
-/deep/ .el-dialog__header .el-dialog__title {
-  font-size: 22px;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1em;
-  color: #4e4e4e;
-}
+
 .el-submenu__title i {
   color: #495060 !important;
 }
@@ -957,7 +947,7 @@ export default {
   transition: all .2s ease;
 }
 .el-menu--horizontal .el-menu .el-menu-item:hover, 
-.el-submenu /deep/.el-submenu__title:hover {
+.el-submenu ::v-deep.el-submenu__title:hover {
   color: #2E95FB !important;
   background: linear-gradient(270deg, #F2F7FC 0%, #FEFEFE 100%)!important;
 }

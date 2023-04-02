@@ -1872,7 +1872,7 @@ a {
   height: 100%;
 }
 
-/deep/.el-tabs--border-card > .el-tabs__content {
+::v-deep.el-tabs--border-card > .el-tabs__content {
   padding-top: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
@@ -2000,11 +2000,11 @@ a {
     height: 100%;
   }
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/deep/ .el-card__body{
+::v-deep .el-card__body{
   padding-bottom: 5px !important;
 }
 #right-column {
@@ -2092,7 +2092,7 @@ a {
 .fl-right {
   float: right;
 }
-/deep/.el-dialog__body {
+::v-deep.el-dialog__body {
   padding: 10px 10px !important;
 }
 #pieChart .echarts {
@@ -2104,7 +2104,7 @@ a {
   right: 10px;
   top: 10px;
 }
-/deep/.echarts {
+::v-deep.echarts {
   width: 350px;
   height: 350px;
 }

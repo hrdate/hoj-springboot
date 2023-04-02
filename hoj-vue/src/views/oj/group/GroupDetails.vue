@@ -576,15 +576,15 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/deep/.el-tabs__nav-wrap {
+::v-deep.el-tabs__nav-wrap {
   background: #fff;
   border-radius: 3px;
 }
-/deep/.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+::v-deep.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
   padding-left: 20px;
 }
 .description-body {

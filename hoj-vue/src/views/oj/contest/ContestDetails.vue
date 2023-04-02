@@ -544,27 +544,27 @@ export default {
     text-align: center;
   }
 }
-/deep/.el-slider__button {
+::v-deep.el-slider__button {
   width: 20px !important;
   height: 20px !important;
   background-color: #409eff !important;
 }
-/deep/.el-slider__button-wrapper {
+::v-deep.el-slider__button-wrapper {
   z-index: 500;
 }
-/deep/.el-slider__bar {
+::v-deep.el-slider__bar {
   height: 10px !important;
   background-color: #09be24 !important;
 }
-/deep/ .el-card__header {
+::v-deep .el-card__header {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/deep/.el-tabs__nav-wrap {
+::v-deep.el-tabs__nav-wrap {
   background: #fff;
   border-radius: 3px;
 }
-/deep/.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+::v-deep.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
   padding-left: 20px;
 }
 .contest-title {

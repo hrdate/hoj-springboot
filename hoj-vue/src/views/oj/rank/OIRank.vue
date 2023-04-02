@@ -305,7 +305,7 @@ export default {
   height: 400px;
 }
 @media screen and (max-width: 768px) {
-  /deep/.el-card__body {
+  ::v-deep.el-card__body {
     padding: 0 !important;
   }
 }

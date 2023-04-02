@@ -197,12 +197,12 @@ export default {
   margin-bottom: -15px;
   text-align: center;
 }
-/deep/.el-button--primary {
+::v-deep.el-button--primary {
   margin: 0 0 15px 0;
   width: 100%;
 }
 
-/deep/ .el-form-item__content {
+::v-deep .el-form-item__content {
   margin-left: 0px !important;
 }
 </style>

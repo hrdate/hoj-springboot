@@ -81,7 +81,7 @@
         </span>
         <hr id="split" />
         <el-row :gutter="12">
-          <el-col :md="6" :sm="24">
+          <el-col :md="8" :sm="24">
             <el-card shadow="always" class="submission">
               <p>
                 <i class="fa fa-th" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
               <p class="data-number">{{ profile.total }}</p>
             </el-card>
           </el-col>
-          <el-col :md="6" :sm="24">
+          <el-col :md="8" :sm="24">
             <el-card shadow="always" class="solved">
               <p>
                 <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -99,7 +99,7 @@
               <p class="data-number">{{ profile.solvedList.length }}</p>
             </el-card>
           </el-col>
-          <el-col :md="6" :sm="24">
+          <el-col :md="8" :sm="24">
             <el-card shadow="always" class="score">
               <p>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -108,7 +108,7 @@
               <p class="data-number">{{ getSumScore(profile.scoreList) }}</p>
             </el-card>
           </el-col>
-          <el-col :md="6" :sm="24">
+          <!-- <el-col :md="6" :sm="24">
             <el-card shadow="always" class="rating">
               <p>
                 <i class="fa fa-user-secret" aria-hidden="true"></i>
@@ -118,9 +118,9 @@
                 {{ profile.rating ? profile.rating : '--' }}
               </p>
             </el-card>
-          </el-col>
+          </el-col> -->
         </el-row>
-        <el-card style="margin-top:1rem;" v-if="loadingCalendarHeatmap">
+        <!-- <el-card style="margin-top:1rem;" v-if="loadingCalendarHeatmap">
           <div class="card-title">
             <i class="el-icon-data-analysis" style="color:#409eff">
             </i>
@@ -134,7 +134,7 @@
             :range-color="['rgb(218, 226, 239)', '#9be9a8', '#40c463', '#30a14e', '#216e39']"
           >
           </calendar-heatmap>
-        </el-card>
+        </el-card> -->
         <el-tabs type="card" style="margin-top:1rem;">
           <el-tab-pane :label="$t('m.Personal_Profile')">
             <div class="signature-body">
@@ -558,27 +558,27 @@ export default {
   text-align: left;
   margin-bottom: 10px;
 }
-/deep/.vch__day__square {
+::v-deep.vch__day__square {
   cursor: pointer!important;
   transition: all .2s ease-in-out!important;
 }
-/deep/.vch__day__square:hover{
+::v-deep.vch__day__square:hover{
   height: 11px !important;
   width: 11px !important;
 }
 
-/deep/svg.vch__wrapper rect.vch__day__square:hover {
+::v-deepsvg.vch__wrapper rect.vch__day__square:hover {
   stroke: rgb(115, 179, 243) !important;
 }
 
-/deep/svg.vch__wrapper .vch__months__labels__wrapper text.vch__month__label,
-/deep/svg.vch__wrapper .vch__days__labels__wrapper text.vch__day__label,
-/deep/svg.vch__wrapper .vch__legend__wrapper text{
+::v-deepsvg.vch__wrapper .vch__months__labels__wrapper text.vch__month__label,
+::v-deepsvg.vch__wrapper .vch__days__labels__wrapper text.vch__day__label,
+::v-deepsvg.vch__wrapper .vch__legend__wrapper text{
   font-size: 0.5rem !important;
   font-weight: 600 !important;
 }
 
-/deep/rect{
+::v-deeprect{
   rx: 2;
   ry: 2;
 }

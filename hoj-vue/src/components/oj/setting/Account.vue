@@ -456,10 +456,10 @@ export default {
 .right {
   text-align: center;
 }
-/deep/ .el-input__inner {
+::v-deep .el-input__inner {
   height: 32px;
 }
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   font-size: 12px;
   line-height: 20px;
 }

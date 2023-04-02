@@ -318,7 +318,7 @@
               <i class="el-icon-monitor"></i> {{ $t('m.Supported_Remote_Online_Judge') }}
             </span>
           </div>
-          <el-row :gutter="20">
+          <!-- <el-row :gutter="20">
             <el-col
               :md="8"
               :sm="24"
@@ -351,7 +351,7 @@
                 </el-tooltip>
               </a>
             </el-col>
-          </el-row>
+          </el-row> -->
         </el-card>
       </el-col>
     </el-row>
@@ -554,7 +554,7 @@ export default {
 }
 </style>
 <style scoped>
-/deep/.el-card__header {
+::v-deep.el-card__header {
   padding: 0.6rem 1.25rem !important;
 }
 .card-top {
@@ -615,7 +615,7 @@ li {
   padding-right: 10px;
 }
 
-/deep/.contest-card-running .el-card__header {
+::v-deep.contest-card-running .el-card__header {
   border-color: rgb(25, 190, 107);
   background-color: rgba(94, 185, 94, 0.15);
 }
@@ -623,7 +623,7 @@ li {
   color: #5eb95e;
 }
 
-/deep/.contest-card-schedule .el-card__header {
+::v-deep.contest-card-schedule .el-card__header {
   border-color: #f90;
   background-color: rgba(243, 123, 29, 0.15);
 }
@@ -740,7 +740,7 @@ span.rank-tag {
 }
 
 @media screen and (min-width: 1050px) {
-  /deep/ .vxe-table--body-wrapper {
+  ::v-deep .vxe-table--body-wrapper {
     overflow-x: hidden !important;
   }
 }

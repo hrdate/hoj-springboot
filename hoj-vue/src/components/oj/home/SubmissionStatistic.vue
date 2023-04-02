@@ -148,7 +148,7 @@ export default {
   height: 400px;
   width: 100%;
 }
-/deep/.el-card__body {
+::v-deep.el-card__body {
   padding: 20px 10px !important;
 }
 </style>

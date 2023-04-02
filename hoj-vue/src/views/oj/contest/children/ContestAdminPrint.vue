@@ -189,7 +189,7 @@ export default {
     margin-right: 20px;
   }
 }
-/deep/ .el-tag--dark {
+::v-deep .el-tag--dark {
   border-color: #fff;
 }
 </style>

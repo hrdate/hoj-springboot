@@ -85,10 +85,10 @@ export default {
 .el-pagination {
   padding-right: 0px !important;
 }
-/deep/.el-pagination__sizes {
+::v-deep.el-pagination__sizes {
   margin: 0px !important;
 }
-/deep/.el-pagination .el-select .el-input {
+::v-deep.el-pagination .el-select .el-input {
   margin-right: 0px !important;
 }
 </style>

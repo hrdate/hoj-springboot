@@ -930,7 +930,7 @@ export default {
 .select-row {
   margin-top: 4px;
 }
-/deep/.el-drawer__body {
+::v-deep.el-drawer__body {
   border: 1px solid rgb(240, 240, 240);
 }
 .tj-btn {
@@ -964,7 +964,7 @@ export default {
 .tj-res-item .value {
   flex: 10;
 }
-/deep/.el-textarea__inner[readonly] {
+::v-deep.el-textarea__inner[readonly] {
   background-color: #f7f8f9 !important;
 }
 .color-gray {
@@ -995,7 +995,7 @@ export default {
     float: right;
   }
 }
-/deep/.el-tabs__content {
+::v-deep.el-tabs__content {
   position: absolute;
   top: 40px;
   bottom: 2px;
@@ -1003,7 +1003,7 @@ export default {
   right: 0;
   overflow-y: auto;
 }
-/deep/.el-card__header {
+::v-deep.el-card__header {
   padding: 10px 25px;
   background-color: antiquewhite;
 }
