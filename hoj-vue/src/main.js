@@ -85,6 +85,7 @@ Vue.use(SlideVerify) // 滑动验证码组件
 Vue.prototype.$axios = axios
 
 Vue.prototype.$markDown = mavonEditor.mavonEditor.getMarkdownIt().use(Md_Katex)  // 挂载到vue
+Vue.config.devtools = true;
 
 Vue.config.productionTip = false
 new Vue({

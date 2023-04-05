@@ -9,7 +9,7 @@ mybatis-plus:
 
 # 消费者将要去访问的微服务名称（注册成功进入nacos的微服务提供者）
 service-url:
-  name: hoj-judgeserver # 服务名
+  name: hoj-data-backup # 服务名
 
 # redis配置
 redis-host: 192.168.42.131

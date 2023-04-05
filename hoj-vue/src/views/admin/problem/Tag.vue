@@ -30,12 +30,12 @@
               style="width: 150px;margin-top: 10px;"
             >
               <el-option :label="$t('m.My_OJ')" :value="'ME'"></el-option>
-              <el-option
+              <!-- <el-option
                 :label="remoteOj.name"
                 :key="index"
                 :value="remoteOj.key"
                 v-for="(remoteOj, index) in REMOTE_OJ"
-              ></el-option>
+              ></el-option> -->
             </el-select>
           </span>
         </div>

@@ -22,7 +22,7 @@
       v-model="route_name"
       @tab-click="handleRouter"
     >
-      <el-tab-pane name="DiscussMsg">
+      <!-- <el-tab-pane name="DiscussMsg">
         <span slot="label">
           <span>{{ $t('m.DiscussMsg') }}</span>
           <span style=" margin-left: 2px;" v-if="unreadMessage.comment > 0">
@@ -54,7 +54,7 @@
         <transition name="fadeInUp" mode="out-in">
           <router-view v-if="route_name === 'LikeMsg'"></router-view>
         </transition>
-      </el-tab-pane>
+      </el-tab-pane> -->
       <el-tab-pane name="SysMsg">
         <span slot="label">
           <span>{{ $t('m.SysMsg') }}</span>

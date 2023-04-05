@@ -402,7 +402,7 @@
           </el-button>
         </div>
 
-        <template v-if="!problem.isRemote">
+        <!-- <template v-if="!problem.isRemote">
           <div class="panel-title home-title">
             {{ $t('m.Judge_Extra_File') }}
             <el-popover
@@ -456,9 +456,9 @@
               </el-form-item>
             </el-col>
           </el-row>
-        </template>
+        </template> -->
 
-        <template v-if="!problem.isRemote">
+        <!-- <template v-if="!problem.isRemote">
           <div class="panel-title home-title">
             {{ $t('m.Judge_Mode') }}
             <el-popover
@@ -531,9 +531,9 @@
               ></code-mirror>
             </Accordion>
           </el-form-item>
-        </template>
+        </template> -->
 
-        <div class="panel-title home-title">{{ $t('m.Code_Template') }}</div>
+        <!-- <div class="panel-title home-title">{{ $t('m.Code_Template') }}</div>
         <el-form-item>
           <el-row>
             <el-col
@@ -552,7 +552,7 @@
               </el-form-item>
             </el-col>
           </el-row>
-        </el-form-item>
+        </el-form-item> -->
 
         <el-row
           :gutter="20"

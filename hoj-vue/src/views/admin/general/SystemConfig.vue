@@ -232,7 +232,7 @@
       >
     </el-card>
 
-    <el-card style="margin-top:15px">
+    <!-- <el-card style="margin-top:15px">
       <div slot="header">
         <span class="panel-title home-title">{{
           $t('m.DataSource_Config')
@@ -336,7 +336,7 @@
         size="small"
         >{{ $t('m.Save') }}</el-button
       >
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 

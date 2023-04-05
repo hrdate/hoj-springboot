@@ -49,7 +49,7 @@
               <h1>{{ $t('m.Development') }}</h1>
               <p class="mb-1">
                 <a
-                  href="https://gitee.com/himitzh0730/hoj"
+                  href="https://github.com/hrdate/hoj-springboot"
                   target="_blank"
                 >{{
                   $t('m.Open_Source')
@@ -74,7 +74,7 @@
               <p>
                 <i class="el-icon-document"></i>
                 <a
-                  href="https://docs.hdoi.cn"
+                  href=""
                   target="_blank"
                 > {{ $t('m.Help') }}</a>
               </p>

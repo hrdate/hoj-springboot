@@ -33,9 +33,9 @@
           <el-menu-item index="/admin/notice">{{
             $t('m.SysNotice')
           }}</el-menu-item>
-          <el-menu-item index="/admin/conf">{{
+          <!-- <el-menu-item index="/admin/conf">{{
             $t('m.System_Config')
-          }}</el-menu-item>
+          }}</el-menu-item> -->
           <el-menu-item index="/admin/switch">{{
             $t('m.System_Switch')
           }}</el-menu-item>
@@ -55,10 +55,10 @@
           <el-menu-item index="/admin/problem/tag">{{
             $t('m.Admin_Tag')
           }}</el-menu-item>
-           <el-menu-item index="/admin/group-problem/apply"
+           <!-- <el-menu-item index="/admin/group-problem/apply"
            v-if="isSuperAdmin || isProblemAdmin"
            >{{$t('m.Admin_Group_Apply_Problem')}}
-           </el-menu-item>
+           </el-menu-item> -->
           <el-menu-item
             index="/admin/problem/batch-operation"
             v-if="isSuperAdmin || isProblemAdmin"
@@ -66,7 +66,7 @@
           >
         </el-submenu>
 
-        <el-submenu index="training">
+        <!-- <el-submenu index="training">
           <template slot="title"
             ><i
               class="el-icon-s-claim"
@@ -84,7 +84,7 @@
           <el-menu-item index="/admin/training/category">{{
             $t('m.Admin_Category')
           }}</el-menu-item>
-        </el-submenu>
+        </el-submenu> -->
 
         <el-submenu index="contest">
           <template slot="title"
@@ -99,7 +99,7 @@
           }}</el-menu-item>
         </el-submenu>
 
-        <el-submenu index="discussion">
+        <!-- <el-submenu index="discussion">
           <template slot="title"
             ><i class="fa fa-comments fa-size" aria-hidden="true"></i
             >{{ $t('m.Discussion') }}</template
@@ -107,7 +107,7 @@
           <el-menu-item index="/admin/discussion">{{
             $t('m.Discussion_Admin')
           }}</el-menu-item>
-        </el-submenu>
+        </el-submenu> -->
       </el-menu>
       <div id="header">
         <el-row>
@@ -255,7 +255,7 @@
             >
               <mu-list-item-title>{{ $t('m.SysNotice') }}</mu-list-item-title>
             </mu-list-item>
-            <mu-list-item
+            <!-- <mu-list-item
               button
               :ripple="false"
               slot="nested"
@@ -266,7 +266,7 @@
               <mu-list-item-title>{{
                 $t('m.System_Config')
               }}</mu-list-item-title>
-            </mu-list-item>
+            </mu-list-item> -->
             <mu-list-item
               button
               :ripple="false"

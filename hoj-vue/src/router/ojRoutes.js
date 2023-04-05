@@ -272,24 +272,24 @@ const ojRoutes = [
     component: Logout,
     meta: { requireAuth: true, title: 'Logout' }
   },
-  {
-    path: '/discussion',
-    name: 'AllDiscussion',
-    meta: {title: 'Discussion', access:'discussion'},
-    component:DiscussionList
-  },
-  {
-    path: '/discussion/:problemID',
-    name: 'ProblemDiscussion',
-    meta: {title: 'Discussion', access:'discussion'},
-    component:DiscussionList
-  },
-  {
-    path: '/discussion-detail/:discussionID',
-    name:'DiscussionDetails',
-    meta: {title: 'Discussion Details', access:'discussion'},
-    component: Discussion
-  },
+  // {
+  //   path: '/discussion',
+  //   name: 'AllDiscussion',
+  //   meta: {title: 'Discussion', access:'discussion'},
+  //   component:DiscussionList
+  // },
+  // {
+  //   path: '/discussion/:problemID',
+  //   name: 'ProblemDiscussion',
+  //   meta: {title: 'Discussion', access:'discussion'},
+  //   component:DiscussionList
+  // },
+  // {
+  //   path: '/discussion-detail/:discussionID',
+  //   name:'DiscussionDetails',
+  //   meta: {title: 'Discussion Details', access:'discussion'},
+  //   component: Discussion
+  // },
   // {
   //   path: '/group',
   //   name: 'GroupList',

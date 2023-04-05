@@ -24,7 +24,7 @@
               >{{ $t('m.Add_From_Public_Problem') }}
             </el-button>
           </span>
-          <span>
+          <!-- <span>
             <el-button
               type="success"
               size="small"
@@ -32,7 +32,7 @@
               icon="el-icon-plus"
               >{{ $t('m.Add_Rmote_OJ_Problem') }}
             </el-button>
-          </span>
+          </span> -->
           <span>
             <vxe-input
               v-model="query.keyword"
@@ -56,12 +56,12 @@
                 :value="'All'"
               ></el-option>
               <el-option :label="$t('m.My_OJ')" :value="'Mine'"></el-option>
-              <el-option
+              <!-- <el-option
                 :label="remoteOj.name"
                 :key="index"
                 :value="remoteOj.key"
                 v-for="(remoteOj, index) in REMOTE_OJ"
-              ></el-option>
+              ></el-option> -->
             </el-select>
           </span>
 

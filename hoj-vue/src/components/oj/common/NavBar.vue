@@ -54,11 +54,11 @@
                 $t('m.NavBar_OI_Rank')
               }}</el-menu-item>
             </el-submenu>
-            <el-menu-item index="/discussion"
+            <!-- <el-menu-item index="/discussion"
               v-if="websiteConfig.openPublicDiscussion"
               ><i class="el-icon-s-comment"></i
               >{{ $t('m.NavBar_Discussion') }}</el-menu-item
-            >
+            > -->
             <!-- <el-menu-item index="/group"
               ><i
                 class="fa fa-users navbar-icon"
@@ -208,7 +208,7 @@
               </span>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/message/discuss">
+                <!-- <el-dropdown-item command="/message/discuss">
                   <span>{{ $t('m.DiscussMsg') }}</span>
                   <span class="drop-msg-count" v-if="unreadMessage.comment > 0">
                     <MsgSvg :total="unreadMessage.comment"></MsgSvg>
@@ -225,7 +225,7 @@
                   <span class="drop-msg-count" v-if="unreadMessage.like > 0">
                     <MsgSvg :total="unreadMessage.like"></MsgSvg>
                   </span>
-                </el-dropdown-item>
+                </el-dropdown-item> -->
                 <el-dropdown-item command="/message/sys">
                   <span>{{ $t('m.SysMsg') }}</span>
                   <span class="drop-msg-count" v-if="unreadMessage.sys > 0">
@@ -532,7 +532,7 @@
             </mu-list-item>
           </mu-list-item>
 
-          <mu-list-item
+          <!-- <mu-list-item
             v-if="websiteConfig.openPublicDiscussion"
             button
             to="/discussion"
@@ -545,7 +545,7 @@
             <mu-list-item-title>{{
               $t('m.NavBar_Discussion')
             }}</mu-list-item-title>
-          </mu-list-item>
+          </mu-list-item> -->
 
           <mu-list-item
             button

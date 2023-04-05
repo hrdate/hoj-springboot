@@ -106,7 +106,7 @@
       </el-upload>
     </el-card>
 
-    <el-card style="margin-top:15px">
+    <!-- <el-card style="margin-top:15px">
       <div slot="header">
         <span class="panel-title home-title">{{
           $t('m.Import_QDUOJ_Problem')
@@ -144,9 +144,9 @@
           >{{ $t('m.Upload') }}</el-button
         >
       </el-upload>
-    </el-card>
+    </el-card> -->
 
-    <el-card style="margin-top:15px">
+    <!-- <el-card style="margin-top:15px">
       <div slot="header">
         <span class="panel-title home-title">{{
           $t('m.Import_FPS_Problem')
@@ -184,9 +184,9 @@
           >{{ $t('m.Upload') }}</el-button
         >
       </el-upload>
-    </el-card>
+    </el-card> -->
 
-    <el-card style="margin-top:15px">
+    <!-- <el-card style="margin-top:15px">
       <div slot="header">
         <span class="panel-title home-title">{{
           $t('m.Import_Hydro_Problem')
@@ -224,7 +224,7 @@
           >{{ $t('m.Upload') }}</el-button
         >
       </el-upload>
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 <script>
