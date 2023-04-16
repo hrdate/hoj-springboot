@@ -34,7 +34,6 @@ public class ProblemController {
      * @MethodName getProblemList
      * @Description 获取题目列表分页
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     @RequestMapping(value = "/get-problem-list", method = RequestMethod.GET)
     @AnonApi
@@ -52,7 +51,6 @@ public class ProblemController {
      * @MethodName getRandomProblem
      * @Description 随机选取一道题目
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     @GetMapping("/get-random-problem")
     @AnonApi
@@ -65,7 +63,6 @@ public class ProblemController {
      * @MethodName getUserProblemStatus
      * @Description 获取用户对应该题目列表中各个题目的做题情况
      * @Return CommonResult
-     * @Since 2020/12/29
      */
     @RequiresAuthentication
     @PostMapping("/get-user-problem-status")
@@ -78,7 +75,6 @@ public class ProblemController {
      * @MethodName getProblemInfo
      * @Description 获取指定题目的详情信息，标签，所支持语言，做题情况（只能查询公开题目 也就是auth为1）
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     @RequestMapping(value = "/get-problem-detail", method = RequestMethod.GET)
     @AnonApi

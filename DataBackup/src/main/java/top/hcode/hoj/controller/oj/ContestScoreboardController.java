@@ -27,7 +27,6 @@ public class ContestScoreboardController {
      * @MethodName getContestOutsideInfo
      * @Description 提供比赛外榜所需的比赛信息和题目信息
      * @Return
-     * @Since 2021/12/8
      */
     @GetMapping("/get-contest-outsize-info")
     public CommonResult<ContestOutsideInfoVO> getContestOutsideInfo(@RequestParam(value = "cid", required = true) Long cid) {
@@ -38,7 +37,6 @@ public class ContestScoreboardController {
      * @MethodName getContestScoreBoard
      * @Description 提供比赛外榜排名数据
      * @Return
-     * @Since 2021/12/07
      */
     @PostMapping("/get-contest-outside-scoreboard")
     public CommonResult<IPage> getContestOutsideScoreboard(@RequestBody ContestRankDTO contestRankDto) {

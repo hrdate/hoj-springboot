@@ -26,7 +26,6 @@ public class RankController {
      * @Params * @param null
      * @Description 获取排行榜数据
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     @GetMapping("/get-rank-list")
     public CommonResult<IPage> getRankList(@RequestParam(value = "limit", required = false) Integer limit,

@@ -198,12 +198,12 @@ const ojRoutes = [
         component:ContestRejudgeAdmin,
         meta: { title: 'Contest Rejudge',requireSuperAdmin:true }
       },
-      {
-        name: 'ContestComment',
-        path:'comment',
-        component: ContestComment,
-        meta: { title: 'Contest Comment', access:'contestComment'}
-      },
+      // {
+      //   name: 'ContestComment',
+      //   path:'comment',
+      //   component: ContestComment,
+      //   meta: { title: 'Contest Comment', access:'contestComment'}
+      // },
       {
         name: 'ContestPrint',
         path:'print',

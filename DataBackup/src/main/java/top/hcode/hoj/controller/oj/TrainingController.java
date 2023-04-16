@@ -33,7 +33,6 @@ public class TrainingController {
      * @MethodName getTrainingList
      * @Description 获取训练题单列表，可根据关键词、类别、权限、类型过滤
      * @Return
-     * @Since 2021/11/20
      */
     @GetMapping("/get-training-list")
     @AnonApi
@@ -52,7 +51,6 @@ public class TrainingController {
      * @MethodName getTraining
      * @Description 根据tid获取指定训练详情
      * @Return
-     * @Since 2021/11/20
      */
     @GetMapping("/get-training-detail")
     @RequiresAuthentication
@@ -65,7 +63,6 @@ public class TrainingController {
      * @MethodName getTrainingProblemList
      * @Description 根据tid获取指定训练的题单题目列表
      * @Return
-     * @Since 2021/11/20
      */
     @GetMapping("/get-training-problem-list")
     @RequiresAuthentication
@@ -78,7 +75,6 @@ public class TrainingController {
      * @MethodName toRegisterTraining
      * @Description 注册校验私有权限的训练
      * @Return
-     * @Since 2021/11/20
      */
     @PostMapping("/register-training")
     @RequiresAuthentication
@@ -92,7 +88,6 @@ public class TrainingController {
      * @MethodName getTrainingAccess
      * @Description 私有权限的训练需要获取当前用户是否有进入训练的权限
      * @Return
-     * @Since 2021/11/20
      */
     @RequiresAuthentication
     @GetMapping("/get-training-access")
@@ -108,7 +103,6 @@ public class TrainingController {
      * @MethodName getTrainingRank
      * @Description 获取训练的排行榜分页
      * @Return
-     * @Since 2021/11/22
      */
     @GetMapping("/get-training-rank")
     @RequiresAuthentication

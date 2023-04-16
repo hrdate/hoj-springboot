@@ -24,7 +24,6 @@ public class AccountController {
      * @MethodName checkUsernameOrEmail
      * @Description 检验用户名和邮箱是否存在
      * @Return
-     * @Since 2020/11/5
      */
     @RequestMapping(value = "/check-username-or-email", method = RequestMethod.POST)
     @AnonApi
@@ -37,7 +36,6 @@ public class AccountController {
      * @MethodName getUserHomeInfo
      * @Description 前端userHome用户个人主页的数据请求，主要是返回解决题目数，AC的题目列表，提交总数，AC总数，Rating分，
      * @Return CommonResult
-     * @Since 2021/01/07
      */
     @GetMapping("/get-user-home-info")
     public CommonResult<UserHomeVO> getUserHomeInfo(@RequestParam(value = "uid", required = false) String uid,
@@ -65,7 +63,6 @@ public class AccountController {
      * @Params * @param null
      * @Description 修改密码的操作，连续半小时内修改密码错误5次，则需要半个小时后才可以再次尝试修改密码
      * @Return
-     * @Since 2021/1/8
      */
 
     @PostMapping("/change-password")
@@ -90,7 +87,6 @@ public class AccountController {
      * @Params * @param null
      * @Description 修改邮箱的操作，连续半小时内密码错误5次，则需要半个小时后才可以再次尝试修改
      * @Return
-     * @Since 2021/1/9
      */
     @PostMapping("/change-email")
     @RequiresAuthentication

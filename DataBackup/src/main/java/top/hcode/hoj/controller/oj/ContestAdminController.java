@@ -26,7 +26,6 @@ public class ContestAdminController {
      * @Params * @param null
      * @Description 获取各个用户的ac情况，仅限于比赛管理者可查看
      * @Return
-     * @Since 2021/1/17
      */
     @GetMapping("/get-contest-ac-info")
     @RequiresAuthentication
@@ -43,7 +42,6 @@ public class ContestAdminController {
      * @Params * @param null
      * @Description 比赛管理员确定该次提交的ac情况
      * @Return
-     * @Since 2021/1/17
      */
     @PutMapping("/check-contest-ac-info")
     @RequiresAuthentication
@@ -68,7 +66,6 @@ public class ContestAdminController {
      * @MethodName checkContestStatus
      * @Description 更新该打印为确定状态
      * @Return
-     * @Since 2021/9/20
      */
     @PutMapping("/check-contest-print-status")
     @RequiresAuthentication

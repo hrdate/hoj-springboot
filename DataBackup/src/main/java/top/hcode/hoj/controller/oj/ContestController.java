@@ -50,7 +50,6 @@ public class ContestController {
      * @MethodName getContestInfo
      * @Description 获得指定比赛的详细信息
      * @Return
-     * @Since 2020/10/28
      */
     @GetMapping("/get-contest-info")
     @RequiresAuthentication
@@ -63,7 +62,6 @@ public class ContestController {
      * @MethodName toRegisterContest
      * @Description 注册比赛
      * @Return
-     * @Since 2020/10/28
      */
     @PostMapping("/register-contest")
     @RequiresAuthentication
@@ -75,7 +73,6 @@ public class ContestController {
      * @MethodName getContestAccess
      * @Description 获得指定私有比赛的访问权限或保护比赛的提交权限
      * @Return
-     * @Since 2020/10/28
      */
     @RequiresAuthentication
     @GetMapping("/get-contest-access")
@@ -89,7 +86,6 @@ public class ContestController {
      * @MethodName getContestProblem
      * @Description 获得指定比赛的题目列表
      * @Return
-     * @Since 2020/10/28
      */
     @GetMapping("/get-contest-problem")
     @RequiresAuthentication
@@ -135,7 +131,6 @@ public class ContestController {
      * @MethodName getContestRank
      * @Description 获得比赛做题记录以用来排名
      * @Return
-     * @Since 2020/10/28
      */
     @PostMapping("/get-contest-rank")
     @RequiresAuthentication
@@ -149,7 +144,6 @@ public class ContestController {
      * @MethodName getContestAnnouncement
      * @Description 获得比赛的通知列表
      * @Return CommonResult
-     * @Since 2020/10/28
      */
     @GetMapping("/get-contest-announcement")
     @RequiresAuthentication
@@ -180,7 +174,6 @@ public class ContestController {
      * @MethodName submitPrintText
      * @Description 提交比赛文本打印内容
      * @Return
-     * @Since 2021/9/20
      */
     @PostMapping("/submit-print-text")
     @RequiresAuthentication

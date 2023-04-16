@@ -101,7 +101,6 @@ public class JudgeManager {
     /**
      * @MethodName submitProblemJudge
      * @Description 核心方法 判题通过openfeign调用判题系统服务
-     * @Since 2020/10/30
      */
     public Judge submitProblemJudge(SubmitJudgeDTO judgeDto) throws StatusForbiddenException, StatusFailException, StatusNotFoundException, StatusAccessDeniedException, AccessException {
 
@@ -232,7 +231,6 @@ public class JudgeManager {
     /**
      * @MethodName resubmit
      * @Description 调用判题服务器提交失败超过60s后，用户点击按钮重新提交判题进入的方法
-     * @Since 2021/2/12
      */
     @Transactional(rollbackFor = Exception.class)
     public Judge resubmit(Long submitId) throws StatusNotFoundException {
@@ -307,7 +305,6 @@ public class JudgeManager {
     /**
      * @MethodName getSubmission
      * @Description 获取单个提交记录的详情
-     * @Since 2021/1/2
      */
     public SubmissionInfoVO getSubmission(Long submitId) throws StatusNotFoundException, StatusAccessDeniedException {
 
@@ -415,7 +412,6 @@ public class JudgeManager {
     /**
      * @MethodName updateSubmission
      * @Description 修改单个提交详情的分享权限
-     * @Since 2021/1/2
      */
     public void updateSubmission(Judge judge) throws StatusForbiddenException, StatusFailException {
 
@@ -451,7 +447,6 @@ public class JudgeManager {
     /**
      * @MethodName getJudgeList
      * @Description 通用查询判题记录列表
-     * @Since 2020/10/29
      */
     public IPage<JudgeVO> getJudgeList(Integer limit,
                                        Integer currentPage,
@@ -497,7 +492,6 @@ public class JudgeManager {
     /**
      * @MethodName checkJudgeResult
      * @Description 对提交列表状态为Pending和Judging的提交进行更新检查
-     * @Since 2021/1/3
      */
     public HashMap<Long, Object> checkCommonJudgeResult(SubmitIdListDTO submitIdListDto) {
 
@@ -526,7 +520,6 @@ public class JudgeManager {
     /**
      * @MethodName checkContestJudgeResult
      * @Description 需要检查是否为封榜，是否可以查询结果，避免有人恶意查询
-     * @Since 2021/6/11
      */
     public HashMap<Long, Object> checkContestJudgeResult(SubmitIdListDTO submitIdListDto) throws StatusNotFoundException {
 
@@ -578,7 +571,6 @@ public class JudgeManager {
     /**
      * @MethodName getJudgeCase
      * @Description 获得指定提交id的测试样例结果，暂不支持查看测试数据，只可看测试点结果，时间，空间，或者IO得分
-     * @Since 2020/10/29
      */
     @GetMapping("/get-all-case-result")
     public JudgeCaseVO getALLCaseResult(Long submitId) throws StatusNotFoundException, StatusForbiddenException {
