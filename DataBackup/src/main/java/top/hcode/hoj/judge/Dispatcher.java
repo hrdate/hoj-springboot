@@ -101,7 +101,10 @@ public class Dispatcher {
                 CommonResult result = null;
                 try {
                     // http请求评测服务
-                    result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
+                    // 本地测试虚拟机局域网地址192.168.42.131
+                    result = restTemplate.postForObject("http://" + "192.168.42.131:8088" + path, data, CommonResult.class);
+                    // judgeServer.getUrl()从judgeServer配置文件ip和port确定
+                    // result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
                 } catch (Exception e) {
                     log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e);
                 } finally {
@@ -157,7 +160,10 @@ public class Dispatcher {
                 data.setJudgeServerPort(judgeServer.getPort());
                 CommonResult result = null;
                 try {
-                    result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
+                    // 本地测试虚拟机局域网地址192.168.42.131
+                    result = restTemplate.postForObject("http://" + "192.168.42.131:8088" + path, data, CommonResult.class);
+                    // judgeServer.getUrl()从judgeServer配置文件ip和port确定
+                    // result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
                 } catch (Exception e) {
                     log.error("[Remote Judge] Request the judge server [" + judgeServer.getUrl() + "] error-------------->", e);
                     changeRemoteJudgeStatus(finalOj, data.getUsername(), judgeServer);

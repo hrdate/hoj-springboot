@@ -45,6 +45,7 @@ public class AccountRealm extends AuthorizingRealm {
         return token instanceof JwtToken;
     }
 
+    // 授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         AccountProfile user = (AccountProfile) principals.getPrimaryPrincipal();
@@ -68,6 +69,7 @@ public class AccountRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
+    // 身份验证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 

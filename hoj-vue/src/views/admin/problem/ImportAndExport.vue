@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card>
+    <!-- <el-card>
       <div slot="header">
         <span class="panel-title home-title">{{ $t('m.Export_Problem') }}</span>
         <div class="filter-row">
@@ -66,7 +66,7 @@
         >
         </el-pagination>
       </div>
-    </el-card>
+    </el-card> -->
 
     <el-card style="margin-top:15px">
       <div slot="header">

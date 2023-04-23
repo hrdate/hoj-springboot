@@ -22,7 +22,7 @@ export const m = {
   Problem_List: '题目列表',
   Create_Problem: '增加题目',
   Admin_Group_Apply_Problem:'团队题目审批',
-  Export_Import_Problem: '导入|导出题目',
+  Export_Import_Problem: '导入题目',
   Training_Admin: '训练管理',
   Training_List: '训练列表',
   Create_Training: '创建训练',

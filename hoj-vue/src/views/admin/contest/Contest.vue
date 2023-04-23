@@ -126,7 +126,7 @@
           </el-col>
         </el-row>
 
-        <el-row>
+        <!-- <el-row>
           <el-col
             :md="8"
             :xs="24"
@@ -211,7 +211,7 @@
               </el-switch>
             </el-form-item>
           </el-col>
-        </el-row>
+        </el-row> -->
 
         <!-- <el-row>
           <el-col

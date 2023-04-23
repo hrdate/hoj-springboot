@@ -221,101 +221,101 @@ public class StartupRunner implements CommandLineRunner {
 
         SwitchConfig switchConfig = nacosSwitchConfig.getSwitchConfig();
 
-        boolean isChanged = false;
-        if ((CollectionUtils.isEmpty(switchConfig.getHduUsernameList())
-                && !CollectionUtils.isEmpty(hduUsernameList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setHduUsernameList(hduUsernameList);
-            isChanged = true;
-        }
+//        boolean isChanged = false;
+//        if ((CollectionUtils.isEmpty(switchConfig.getHduUsernameList())
+//                && !CollectionUtils.isEmpty(hduUsernameList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setHduUsernameList(hduUsernameList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getHduPasswordList())
+//                && !CollectionUtils.isEmpty(hduPasswordList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setHduPasswordList(hduPasswordList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getCfUsernameList())
+//                && !CollectionUtils.isEmpty(cfUsernameList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setCfUsernameList(cfUsernameList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getCfPasswordList())
+//                && !CollectionUtils.isEmpty(cfPasswordList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setCfPasswordList(cfPasswordList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getPojUsernameList())
+//                && !CollectionUtils.isEmpty(pojUsernameList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setPojUsernameList(pojUsernameList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getPojPasswordList())
+//                && !CollectionUtils.isEmpty(pojPasswordList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setPojPasswordList(pojPasswordList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getAtcoderUsernameList())
+//                && !CollectionUtils.isEmpty(atcoderUsernameList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setAtcoderUsernameList(atcoderUsernameList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getAtcoderPasswordList())
+//                && !CollectionUtils.isEmpty(atcoderPasswordList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setAtcoderPasswordList(atcoderPasswordList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getSpojUsernameList())
+//                && !CollectionUtils.isEmpty(spojUsernameList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setSpojUsernameList(spojUsernameList);
+//            isChanged = true;
+//        }
+//
+//        if ((CollectionUtils.isEmpty(switchConfig.getSpojPasswordList())
+//                && !CollectionUtils.isEmpty(spojPasswordList))
+//                || forcedUpdateRemoteJudgeAccount) {
+//            switchConfig.setSpojPasswordList(spojPasswordList);
+//            isChanged = true;
+//        }
 
-        if ((CollectionUtils.isEmpty(switchConfig.getHduPasswordList())
-                && !CollectionUtils.isEmpty(hduPasswordList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setHduPasswordList(hduPasswordList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getCfUsernameList())
-                && !CollectionUtils.isEmpty(cfUsernameList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setCfUsernameList(cfUsernameList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getCfPasswordList())
-                && !CollectionUtils.isEmpty(cfPasswordList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setCfPasswordList(cfPasswordList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getPojUsernameList())
-                && !CollectionUtils.isEmpty(pojUsernameList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setPojUsernameList(pojUsernameList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getPojPasswordList())
-                && !CollectionUtils.isEmpty(pojPasswordList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setPojPasswordList(pojPasswordList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getAtcoderUsernameList())
-                && !CollectionUtils.isEmpty(atcoderUsernameList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setAtcoderUsernameList(atcoderUsernameList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getAtcoderPasswordList())
-                && !CollectionUtils.isEmpty(atcoderPasswordList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setAtcoderPasswordList(atcoderPasswordList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getSpojUsernameList())
-                && !CollectionUtils.isEmpty(spojUsernameList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setSpojUsernameList(spojUsernameList);
-            isChanged = true;
-        }
-
-        if ((CollectionUtils.isEmpty(switchConfig.getSpojPasswordList())
-                && !CollectionUtils.isEmpty(spojPasswordList))
-                || forcedUpdateRemoteJudgeAccount) {
-            switchConfig.setSpojPasswordList(spojPasswordList);
-            isChanged = true;
-        }
-
-        if (isChanged) {
-            nacosSwitchConfig.publishWebConfig();
-        }
-
-        if (openRemoteJudge.equals("true")) {
-            // 初始化清空表
-            remoteJudgeAccountEntityService.remove(new QueryWrapper<>());
-            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.HDU.getName(),
-                    switchConfig.getHduUsernameList(),
-                    switchConfig.getHduPasswordList());
-            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.POJ.getName(),
-                    switchConfig.getPojUsernameList(),
-                    switchConfig.getPojPasswordList());
-            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.CODEFORCES.getName(),
-                    switchConfig.getCfUsernameList(),
-                    switchConfig.getCfPasswordList());
-            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.SPOJ.getName(),
-                    switchConfig.getSpojUsernameList(),
-                    switchConfig.getSpojPasswordList());
-            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.ATCODER.getName(),
-                    switchConfig.getAtcoderUsernameList(),
-                    switchConfig.getAtcoderPasswordList());
-            checkRemoteOJLanguage(Constants.RemoteOJ.SPOJ, Constants.RemoteOJ.ATCODER);
-        }
+//        if (isChanged) {
+//            nacosSwitchConfig.publishWebConfig();
+//        }
+//
+//        if (openRemoteJudge.equals("true")) {
+//            // 初始化清空表
+//            remoteJudgeAccountEntityService.remove(new QueryWrapper<>());
+//            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.HDU.getName(),
+//                    switchConfig.getHduUsernameList(),
+//                    switchConfig.getHduPasswordList());
+//            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.POJ.getName(),
+//                    switchConfig.getPojUsernameList(),
+//                    switchConfig.getPojPasswordList());
+//            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.CODEFORCES.getName(),
+//                    switchConfig.getCfUsernameList(),
+//                    switchConfig.getCfPasswordList());
+//            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.SPOJ.getName(),
+//                    switchConfig.getSpojUsernameList(),
+//                    switchConfig.getSpojPasswordList());
+//            addRemoteJudgeAccountToMySQL(Constants.RemoteOJ.ATCODER.getName(),
+//                    switchConfig.getAtcoderUsernameList(),
+//                    switchConfig.getAtcoderPasswordList());
+//            checkRemoteOJLanguage(Constants.RemoteOJ.SPOJ, Constants.RemoteOJ.ATCODER);
+//        }
     }
 
 

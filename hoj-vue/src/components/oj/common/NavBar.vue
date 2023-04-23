@@ -54,17 +54,7 @@
                 $t('m.NavBar_OI_Rank')
               }}</el-menu-item>
             </el-submenu>
-            <!-- <el-menu-item index="/discussion"
-              v-if="websiteConfig.openPublicDiscussion"
-              ><i class="el-icon-s-comment"></i
-              >{{ $t('m.NavBar_Discussion') }}</el-menu-item
-            > -->
-            <!-- <el-menu-item index="/group"
-              ><i
-                class="fa fa-users navbar-icon"
-              ></i
-              >{{ $t('m.NavBar_Group') }}</el-menu-item
-            > -->
+            
             <el-submenu index="about">
               <template slot="title"
                 ><i class="el-icon-info"></i>{{ $t('m.NavBar_About') }}</template
@@ -72,9 +62,9 @@
               <el-menu-item index="/introduction">{{
                 $t('m.NavBar_Introduction')
               }}</el-menu-item>
-              <el-menu-item index="/developer">{{
+              <!-- <el-menu-item index="/developer">{{
                 $t('m.NavBar_Developer')
-              }}</el-menu-item>
+              }}</el-menu-item> -->
             </el-submenu>
         </template>
         <!-- <template v-else-if="mode == 'training'">
@@ -532,20 +522,7 @@
             </mu-list-item>
           </mu-list-item>
 
-          <!-- <mu-list-item
-            v-if="websiteConfig.openPublicDiscussion"
-            button
-            to="/discussion"
-            @click="opendrawer = !opendrawer"
-            active-class="mobile-menu-active"
-          >
-            <mu-list-item-action>
-              <mu-icon value=":fa fa-comments" size="24"></mu-icon>
-            </mu-list-item-action>
-            <mu-list-item-title>{{
-              $t('m.NavBar_Discussion')
-            }}</mu-list-item-title>
-          </mu-list-item> -->
+          
 
           <mu-list-item
             button
@@ -589,7 +566,7 @@
                 $t('m.NavBar_Introduction')
               }}</mu-list-item-title>
             </mu-list-item>
-            <mu-list-item
+            <!-- <mu-list-item
               button
               :ripple="false"
               slot="nested"
@@ -600,7 +577,7 @@
               <mu-list-item-title>{{
                 $t('m.NavBar_Developer')
               }}</mu-list-item-title>
-            </mu-list-item>
+            </mu-list-item> -->
           </mu-list-item>
         </mu-list>
       </mu-drawer>
@@ -792,9 +769,7 @@ export default {
     activeMenuName() {
       if (this.$route.path.split('/')[1] == 'submission-detail') {
         return '/status';
-      } else if (this.$route.path.split('/')[1] == 'discussion-detail') {
-        return '/discussion';
-      }
+      } 
       return '/' + this.$route.path.split('/')[1];
     },
     modalVisible: {
