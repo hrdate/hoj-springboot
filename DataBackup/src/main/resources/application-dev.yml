@@ -43,9 +43,9 @@ email-host: smtp.qq.com
 # 邮箱服务端口号
 email-port: 465
 # 邮箱账号
-email-username: 535523596@qq.com
+email-username: xxxxx@qq.com
 # 邮箱授权码
-email-password: ceoxkatslrkicbah
+email-password: xxxxxxx
 
 # 以下为各个remote judge平台的账号配置
 hdu-username-list: username1,username2
