@@ -78,8 +78,7 @@
             :value="infoData.recentContestNum"
           ></info-card>
         </div>
-        <!-- <el-card title="System_Overview" v-if="isSuperAdmin"> -->
-        <el-card>
+        <!-- <el-card>
           <div slot="header">
             <span class="panel-title home-title">{{
               $t('m.Backend_System')
@@ -192,11 +191,11 @@
               </template>
             </vxe-table-column>
           </vxe-table>
-        </el-card>
+        </el-card> -->
       </el-col>
     </el-row>
 
-    <el-card style="margin-top:10px">
+    <!-- <el-card style="margin-top:10px">
       <div slot="header">
         <span class="panel-title home-title">{{ $t('m.Judge_Server') }}</span>
       </div>
@@ -269,7 +268,7 @@
           </template>
         </vxe-table-column>
       </vxe-table>
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 
@@ -304,12 +303,12 @@ export default {
     };
   },
   mounted() {
-    this.refreshJudgeServerList();
-    this.refreshGeneralSystemInfo();
+    // this.refreshJudgeServerList();
+    // this.refreshGeneralSystemInfo();
     // 每5秒刷新判题机服务和后台服务的情况
     this.intervalId = setInterval(() => {
-      this.refreshJudgeServerList();
-      this.refreshGeneralSystemInfo();
+      // this.refreshJudgeServerList();
+      // this.refreshGeneralSystemInfo();
     }, 5000);
     api.admin_getDashboardInfo().then(
       (resp) => {

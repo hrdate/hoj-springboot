@@ -11,7 +11,7 @@ server:
   port: ${hoj-judge-server.port}
 spring:
   profiles:
-    active: prod
+    active: dev
   application:
     name: hoj-judgeserver
   cloud:

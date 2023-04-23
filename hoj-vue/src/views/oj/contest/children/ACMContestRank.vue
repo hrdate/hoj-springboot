@@ -3,7 +3,7 @@
     <div slot="header">
       <span class="panel-title">{{ $t('m.Contest_Rank') }}</span>
     </div>
-    <div
+    <!-- <div
       v-show="showChart"
       class="echarts"
     >
@@ -12,7 +12,7 @@
         ref="chart"
         :autoresize="true"
       ></ECharts>
-    </div>
+    </div> -->
     <el-row>
       <el-col
         :xs="24"

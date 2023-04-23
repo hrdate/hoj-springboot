@@ -461,26 +461,6 @@
                   :value="1003"
                   :key="1003"
                 ></el-option>
-                <el-option
-                  label="用户(禁止发讨论)"
-                  :value="1004"
-                  :key="1004"
-                ></el-option>
-                <el-option
-                  label="用户(禁言)"
-                  :value="1005"
-                  :key="1005"
-                ></el-option>
-                <el-option
-                  label="用户(禁止提交&禁止发讨论)"
-                  :value="1006"
-                  :key="1006"
-                ></el-option>
-                <el-option
-                  label="用户(禁止提交&禁言)"
-                  :value="1007"
-                  :key="1007"
-                ></el-option>
               </el-select>
             </el-form-item>
           </el-col>

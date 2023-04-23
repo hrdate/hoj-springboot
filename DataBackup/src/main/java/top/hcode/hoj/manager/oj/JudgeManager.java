@@ -457,8 +457,12 @@ public class JudgeManager {
                                        Boolean completeProblemID,
                                        Long gid) throws StatusAccessDeniedException {
         // 页数，每页题数若为空，设置默认值
-        if (currentPage == null || currentPage < 1) currentPage = 1;
-        if (limit == null || limit < 1) limit = 30;
+        if (currentPage == null || currentPage < 1) {
+            currentPage = 1;
+        }
+        if (limit == null || limit < 1) {
+            limit = 30;
+        }
 
         String uid = null;
         // 只查看当前用户的提交
@@ -503,7 +507,7 @@ public class JudgeManager {
 
         QueryWrapper<Judge> queryWrapper = new QueryWrapper<>();
         // lambada表达式过滤掉code
-        queryWrapper.select(Judge.class, info -> !info.getColumn().equals("code")).in("submit_id", submitIds);
+        queryWrapper.select(Judge.class, info -> !"code".equals(info.getColumn())).in("submit_id", submitIds);
         List<Judge> judgeList = judgeEntityService.list(queryWrapper);
         HashMap<Long, Object> result = new HashMap<>();
         for (Judge judge : judgeList) {
@@ -544,7 +548,7 @@ public class JudgeManager {
 
         QueryWrapper<Judge> queryWrapper = new QueryWrapper<>();
         // lambada表达式过滤掉code
-        queryWrapper.select(Judge.class, info -> !info.getColumn().equals("code"))
+        queryWrapper.select(Judge.class, info -> !"code".equals(info.getColumn()))
                 .in("submit_id", submitIdListDto.getSubmitIds())
                 .eq("cid", submitIdListDto.getCid())
                 .between(isSealRank, "submit_time", contest.getStartTime(), contest.getSealRankTime());
@@ -649,6 +653,8 @@ public class JudgeManager {
                 case SUBTASK_LOWEST:
                     judgeCaseVo.setSubTaskJudgeCaseVoList(buildSubTaskDetail(judgeCaseList, judgeCaseMode));
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + judgeCaseMode);
             }
             judgeCaseVo.setJudgeCaseMode(judgeCaseMode.getMode());
         } else {

@@ -34,7 +34,6 @@ public class ContestController {
      * @Params * @param null
      * @Description 获取比赛列表分页数据
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     @GetMapping("/get-contest-list")
     @AnonApi
@@ -160,7 +159,6 @@ public class ContestController {
      * @MethodName getContestUserNotReadAnnouncement
      * @Description 根据前端传过来的比赛id以及已阅读的公告提示id列表，排除后获取未阅读的公告
      * @Return
-     * @Since 2021/7/17
      */
     @PostMapping("/get-contest-not-read-announcement")
     @RequiresAuthentication

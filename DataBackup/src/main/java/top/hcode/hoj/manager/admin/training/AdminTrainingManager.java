@@ -55,8 +55,12 @@ public class AdminTrainingManager {
 
     public IPage<Training> getTrainingList(Integer limit, Integer currentPage, String keyword) {
 
-        if (currentPage == null || currentPage < 1) currentPage = 1;
-        if (limit == null || limit < 1) limit = 10;
+        if (currentPage == null || currentPage < 1) {
+            currentPage = 1;
+        }
+        if (limit == null || limit < 1) {
+            limit = 10;
+        }
         IPage<Training> iPage = new Page<>(currentPage, limit);
         QueryWrapper<Training> queryWrapper = new QueryWrapper<>();
         // 过滤密码

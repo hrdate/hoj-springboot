@@ -67,7 +67,6 @@ public class ImportFpsProblemManager {
      * @MethodName importFpsProblem
      * @Description zip文件导入题目 仅超级管理员可操作
      * @Return
-     * @Since 2021/10/06
      */
     public void importFPSProblem(MultipartFile file) throws IOException, StatusFailException {
         String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);

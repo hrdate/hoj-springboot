@@ -65,7 +65,6 @@ public class UserRoleEntityServiceImpl extends ServiceImpl<UserRoleMapper, UserR
      * @MethodName deleteCache
      * @Description TODO
      * @Return
-     * @Since 2021/6/12
      */
     @Override
     public void deleteCache(String uid, boolean isRemoveSession) {

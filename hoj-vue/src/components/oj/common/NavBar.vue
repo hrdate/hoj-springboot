@@ -138,7 +138,7 @@
                 >{{ $t('m.NavBar_Login') }}
               </el-button>
               <el-button
-                v-if="websiteConfig.register"
+                v-if="websiteConfig.register || true"
                 size="medium"
                 round
                 @click="handleBtnClick('Register')"

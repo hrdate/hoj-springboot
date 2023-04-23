@@ -7,7 +7,7 @@
             : $t('m.Based_on_The_Highest_Score_Submitted_For_Each_Problem')
         }}）</span>
     </div>
-    <div
+    <!-- <div
       v-show="showChart"
       class="echarts"
     >
@@ -16,7 +16,7 @@
         ref="chart"
         :autoresize="true"
       ></ECharts>
-    </div>
+    </div> -->
     <el-row>
       <el-col
         :xs="24"

@@ -3,13 +3,11 @@ package top.hcode.hoj.util;
 
 /**
  *
- * @Date: 2021/1/1 13:00
  * @Description: 常量枚举类
  */
 public class Constants {
     /**
      * @Description 提交评测结果的状态码
-     * @Since 2021/1/1
      */
     public enum Judge {
         // 提交失败
@@ -180,7 +178,6 @@ public class Constants {
 
     /**
      * @Description 比赛相关的常量
-     * @Since 2021/1/7
      */
     public enum Contest {
         TYPE_ACM(0, "ACM"),

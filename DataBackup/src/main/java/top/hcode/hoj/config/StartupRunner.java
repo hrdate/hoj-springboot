@@ -326,7 +326,6 @@ public class StartupRunner implements CommandLineRunner {
      * @MethodName addRemoteJudgeAccountToRedis
      * @Description 将传入的对应oj账号写入到mysql
      * @Return
-     * @Since 2021/5/18
      */
     private void addRemoteJudgeAccountToMySQL(String oj, List<String> usernameList, List<String> passwordList) {
 

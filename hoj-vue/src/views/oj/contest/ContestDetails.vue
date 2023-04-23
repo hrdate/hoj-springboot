@@ -216,7 +216,7 @@
           </transition>
         </el-tab-pane>
 
-        <el-tab-pane 
+        <!-- <el-tab-pane 
           name="ContestComment" 
           lazy 
           :disabled="contestMenuDisabled"
@@ -229,7 +229,7 @@
           <transition name="el-zoom-in-bottom">
             <router-view v-if="route_name === 'ContestComment'"></router-view>
           </transition>
-        </el-tab-pane>
+        </el-tab-pane> -->
 
         <el-tab-pane
           name="ContestPrint"
@@ -297,7 +297,7 @@
           </transition>
         </el-tab-pane>
 
-        <el-tab-pane
+        <!-- <el-tab-pane
           name="ScrollBoard"
           lazy
           :disabled="contestMenuDisabled"
@@ -313,7 +313,7 @@
               v-if="route_name === 'ScrollBoard'"
             ></router-view>
           </transition>
-        </el-tab-pane>
+        </el-tab-pane> -->
 
       </el-tabs>
     </div>

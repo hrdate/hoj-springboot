@@ -47,7 +47,6 @@ public class ChooseUtils {
      * @MethodName chooseServer
      * @Description 选择可以用调用判题的判题服务器
      * @Return
-     * @Since 2021/4/15
      */
     @Transactional(rollbackFor = Exception.class)
     public JudgeServer chooseServer(Boolean isRemote) {
@@ -145,7 +144,6 @@ public class ChooseUtils {
      * @MethodName getInstances
      * @Description 根据服务id获取对应的健康实例列表
      * @Return
-     * @Since 2021/4/15
      */
     private List<Instance> getInstances(String serviceId) {
         // 获取服务发现的相关API

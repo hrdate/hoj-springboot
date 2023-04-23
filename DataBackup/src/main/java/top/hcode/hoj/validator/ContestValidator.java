@@ -86,7 +86,6 @@ public class ContestValidator {
      * @param isRoot
      * @MethodName validateContestAuth
      * @Description 需要对该比赛做判断，是否处于开始或结束状态才可以获取，同时若是私有赛需要判断是否已注册（比赛管理员包括超级管理员可以直接获取）
-     * @Since 2021/1/17
      */
     public void validateContestAuth(Contest contest, AccountProfile userRolesVo, Boolean isRoot) throws StatusFailException, StatusForbiddenException {
 

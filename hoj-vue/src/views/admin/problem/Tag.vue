@@ -116,12 +116,12 @@
         <el-form-item :label="$t('m.Tag_Attribution')" required="">
           <el-select v-model="tag.oj" size="small" style="width: 150px;">
             <el-option :label="$t('m.My_OJ')" :value="'ME'"></el-option>
-            <el-option
+            <!-- <el-option
               :label="remoteOj.name"
               :key="index"
               :value="remoteOj.key"
               v-for="(remoteOj, index) in REMOTE_OJ"
-            ></el-option>
+            ></el-option> -->
           </el-select>
         </el-form-item>
 

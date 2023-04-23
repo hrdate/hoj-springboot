@@ -41,7 +41,6 @@ public class UserMessageController {
      * @MethodName cleanMsg
      * @Description 根据type，清空各个消息模块的消息或单个消息
      * @Return
-     * @Since 2021/10/3
      */
     @RequestMapping(value = "/clean", method = RequestMethod.DELETE)
     @RequiresAuthentication

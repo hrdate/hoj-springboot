@@ -42,9 +42,9 @@ public class JudgeDispatcher {
         task.set("isContest", isContest);
         try {
             boolean isOk;
-            if (isContest) {
+            if (isContest) { // 比赛的redis任务队列
                 isOk = redisUtils.llPush(Constants.Queue.CONTEST_JUDGE_WAITING.getName(), JSONUtil.toJsonStr(task));
-            } else {
+            } else { // 普通的redis任务队列
                 isOk = redisUtils.llPush(Constants.Queue.GENERAL_JUDGE_WAITING.getName(), JSONUtil.toJsonStr(task));
             }
             if (!isOk) {

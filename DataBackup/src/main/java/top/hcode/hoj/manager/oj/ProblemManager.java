@@ -80,7 +80,6 @@ public class ProblemManager {
      * @MethodName getProblemList
      * @Params * @param null
      * @Description 获取题目列表分页
-     * @Since 2020/10/27
      */
     public Page<ProblemVO> getProblemList(Integer limit, Integer currentPage,
                                           String keyword, List<Long> tagId, Integer difficulty, String oj) {
@@ -102,7 +101,6 @@ public class ProblemManager {
     /**
      * @MethodName getRandomProblem
      * @Description 随机选取一道题目
-     * @Since 2020/10/27
      */
     public RandomProblemVO getRandomProblem() throws StatusFailException {
         QueryWrapper<Problem> queryWrapper = new QueryWrapper<>();
@@ -123,7 +121,6 @@ public class ProblemManager {
     /**
      * @MethodName getUserProblemStatus
      * @Description 获取用户对应该题目列表中各个题目的做题情况
-     * @Since 2020/12/29
      */
     public HashMap<Long, Object> getUserProblemStatus(PidListDTO pidListDto) throws StatusNotFoundException {
 
@@ -234,7 +231,6 @@ public class ProblemManager {
     /**
      * @MethodName getProblemInfo
      * @Description 获取指定题目的详情信息，标签，所支持语言，做题情况（只能查询公开题目 也就是auth为1）
-     * @Since 2020/10/27
      */
     public ProblemInfoVO getProblemInfo(String problemId, Long gid) throws StatusNotFoundException, StatusForbiddenException {
         QueryWrapper<Problem> wrapper = new QueryWrapper<Problem>().eq("problem_id", problemId);

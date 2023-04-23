@@ -74,7 +74,6 @@ public class AccountManager {
      * @Params * @param null
      * @Description 检验用户名和邮箱是否存在
      * @Return
-     * @Since 2020/11/5
      */
     public CheckUsernameOrEmailVO checkUsernameOrEmail(CheckUsernameOrEmailDTO checkUsernameOrEmailDto) {
 
@@ -123,7 +122,6 @@ public class AccountManager {
      * @param uid
      * @MethodName getUserHomeInfo
      * @Description 前端userHome用户个人主页的数据请求，主要是返回解决题目数，AC的题目列表，提交总数，AC总数，Rating分，
-     * @Since 2021/01/07
      */
     public UserHomeVO getUserHomeInfo(String uid, String username) throws StatusFailException {
 
@@ -228,7 +226,6 @@ public class AccountManager {
      * @MethodName changePassword
      * @Description 修改密码的操作，连续半小时内修改密码错误5次，则需要半个小时后才可以再次尝试修改密码
      * @Return
-     * @Since 2021/1/8
      */
     public ChangeAccountVO changePassword(ChangePasswordDTO changePasswordDto) throws StatusSystemErrorException, StatusFailException {
         String oldPassword = changePasswordDto.getOldPassword();
@@ -335,7 +332,6 @@ public class AccountManager {
      * @MethodName changeEmail
      * @Description 修改邮箱的操作，连续半小时内密码错误5次，则需要半个小时后才可以再次尝试修改
      * @Return
-     * @Since 2021/1/9
      */
     public ChangeAccountVO changeEmail(ChangeEmailDTO changeEmailDto) throws StatusSystemErrorException, StatusFailException {
 

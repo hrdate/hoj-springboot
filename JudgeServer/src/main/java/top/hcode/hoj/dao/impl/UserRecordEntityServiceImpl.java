@@ -37,7 +37,7 @@ public class UserRecordEntityServiceImpl extends ServiceImpl<UserRecordMapper, U
      * @Params  * @param null
      * @Description 本方法不启用，不适合数据一致性
      * @Return
-     * @Since 2021/6/2
+
      */
     @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
     @Async

@@ -51,8 +51,12 @@ public class AdminTrainingProblemManager {
     private RemoteProblemManager remoteProblemManager;
 
     public HashMap<String, Object> getProblemList(Integer limit, Integer currentPage, String keyword, Boolean queryExisted, Long tid) {
-        if (currentPage == null || currentPage < 1) currentPage = 1;
-        if (limit == null || limit < 1) limit = 10;
+        if (currentPage == null || currentPage < 1) {
+            currentPage = 1;
+        }
+        if (limit == null || limit < 1) {
+            limit = 10;
+        }
 
         IPage<Problem> iPage = new Page<>(currentPage, limit);
         // 根据tid在TrainingProblem表中查询到对应pid集合

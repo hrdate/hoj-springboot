@@ -86,15 +86,13 @@ public class Dispatcher {
      * @param path
      */
     public void defaultJudge(ToJudgeDTO data, String path) {
-
         Long submitId = data.getJudge().getSubmitId();
         AtomicInteger count = new AtomicInteger(0);
         String taskKey = UUID.randomUUID().toString() + submitId;
-
         Runnable getResultTask = () -> {
             if (count.get() > maxTryNum) {
                 checkResult(null, submitId);
-                releaseTaskThread(taskKey);
+                releaseTaskThread(taskKey); // 释放资源
                 return;
             }
             count.getAndIncrement();
@@ -102,6 +100,7 @@ public class Dispatcher {
             if (judgeServer != null) { // 获取到判题机资源
                 CommonResult result = null;
                 try {
+                    // http请求评测服务
                     result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
                 } catch (Exception e) {
                     log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e);

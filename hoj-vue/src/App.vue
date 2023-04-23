@@ -9,7 +9,7 @@
         </transition>
       </div>
       <footer v-if="showFooter" class="fix-to-bottom">
-        <div class="mundb-footer">
+        <!-- <div class="mundb-footer">
           <el-row>
             <el-col
               :md="6"
@@ -80,7 +80,7 @@
               </p>
             </el-col>
           </el-row>
-        </div>
+        </div> -->
         <div class="mundb-footer">
           <a
             style="color:#1E9FFF"

@@ -41,7 +41,6 @@ public class RankManager {
      * @Params * @param null
      * @Description 获取排行榜数据
      * @Return CommonResult
-     * @Since 2020/10/27
      */
     public IPage getRankList(Integer limit, Integer currentPage, String searchUser, Integer type) throws StatusFailException {
 

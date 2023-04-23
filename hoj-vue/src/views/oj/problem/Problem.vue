@@ -80,7 +80,7 @@
                     }}</el-tag>
                   </div>
                   <div class="problem-menu">
-                    <span v-if="isShowProblemDiscussion">
+                    <!-- <span v-if="isShowProblemDiscussion">
                       <el-link
                         type="primary"
                         :underline="false"
@@ -90,7 +90,7 @@
                           aria-hidden="true"
                         ></i>
                         {{ $t('m.Problem_Discussion') }}</el-link>
-                    </span>
+                    </span> -->
                     <span>
                       <el-link
                         type="primary"
@@ -706,7 +706,7 @@
                     <span v-if="submitting">{{ $t('m.Submitting') }}</span>
                     <span v-else>{{ $t('m.Submit') }}</span>
                   </el-button>
-                  <el-tag
+                  <!-- <el-tag
                     type="success"
                     :class="openTestCaseDrawer?'tj-btn active':'tj-btn non-active'"
                     @click.native="openTestJudgeDrawer"
@@ -734,7 +734,7 @@
                     <span style="vertical-align: middle;">
                       {{ $t('m.Online_Test') }}
                     </span>
-                  </el-tag>
+                  </el-tag> -->
                 </el-col>
               </el-row>
             </div>

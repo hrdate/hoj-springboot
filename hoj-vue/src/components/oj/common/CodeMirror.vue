@@ -27,7 +27,7 @@
               </el-option>
             </el-select>
           </span>
-          <span>
+          <!-- <span>
             <el-tooltip
               :content="$t('m.Reset_Code')"
               placement="top"
@@ -38,7 +38,7 @@
                 size="small"
               ></el-button>
             </el-tooltip>
-          </span>
+          </span> -->
           <span v-if="isAuthenticated && !submitDisabled">
             <el-tooltip
               :content="$t('m.Get_Recently_Passed_Code')"
@@ -61,7 +61,7 @@
         :lg="8"
       >
         <div class="select-row fl-right">
-          <span>
+          <!-- <span>
             <el-tooltip
               :content="$t('m.Upload_file')"
               placement="bottom"
@@ -72,7 +72,7 @@
                 size="small"
               ></el-button>
             </el-tooltip>
-          </span>
+          </span> -->
           <span>
             <input
               type="file"

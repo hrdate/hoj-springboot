@@ -81,7 +81,6 @@ public class TrainingManager {
      * @MethodName getTrainingList
      * @Description 获取训练题单列表，可根据关键词、类别、权限、类型过滤
      * @Return
-     * @Since 2021/11/20
      */
     public IPage<TrainingVO> getTrainingList(Integer limit,
                                              Integer currentPage,
@@ -109,7 +108,6 @@ public class TrainingManager {
      * @MethodName getTraining
      * @Description 根据tid获取指定训练详情
      * @Return
-     * @Since 2021/11/20
      */
     public TrainingVO getTraining(Long tid) throws StatusFailException, StatusAccessDeniedException, StatusForbiddenException {
         AccountProfile userRolesVo = (AccountProfile) SecurityUtils.getSubject().getPrincipal();
@@ -152,7 +150,6 @@ public class TrainingManager {
      * @MethodName getTrainingProblemList
      * @Description 根据tid获取指定训练的题单题目列表
      * @Return
-     * @Since 2021/11/20
      */
     public List<ProblemVO> getTrainingProblemList(Long tid) throws StatusAccessDeniedException,
             StatusForbiddenException, StatusFailException {
@@ -170,7 +167,6 @@ public class TrainingManager {
      * @MethodName toRegisterTraining
      * @Description 注册校验私有权限的训练
      * @Return
-     * @Since 2021/11/20
      */
     public void toRegisterTraining(RegisterTrainingDTO registerTrainingDto) throws StatusFailException, StatusForbiddenException {
 
@@ -217,7 +213,6 @@ public class TrainingManager {
      * @MethodName getTrainingAccess
      * @Description 私有权限的训练需要获取当前用户是否有进入训练的权限
      * @Return
-     * @Since 2021/11/20
      */
     public AccessVO getTrainingAccess(Long tid) throws StatusFailException {
 
@@ -251,7 +246,6 @@ public class TrainingManager {
      * @MethodName getTrainingRnk
      * @Description 获取训练的排行榜分页
      * @Return
-     * @Since 2021/11/22
      */
     public IPage<TrainingRankVO> getTrainingRank(Long tid, Integer limit, Integer currentPage, String keyword) throws
             StatusAccessDeniedException, StatusForbiddenException, StatusFailException {

@@ -101,7 +101,6 @@ public class ConfigManager {
      * @Params * @param null
      * @Description 获取当前服务的相关信息以及当前系统的cpu情况，内存使用情况
      * @Return CommonResult
-     * @Since 2020/12/3
      */
 
     public JSONObject getServiceInfo() {
@@ -115,12 +114,21 @@ public class ConfigManager {
 
         JSONObject jsonObject = JSONUtil.parseObj(response);
         // 获取当前数据后台所在机器环境
-        int cores = OshiUtil.getCpuInfo().getCpuNum(); // 当前机器的cpu核数
-        double cpuLoad = 100 - OshiUtil.getCpuInfo().getFree();
-        String percentCpuLoad = String.format("%.2f", cpuLoad) + "%"; // 当前服务所在机器cpu使用率
+        int cores = 2;
+        double cpuLoad = 100;
+        String percentCpuLoad = "50%";
+        double totalVirtualMemory = 4;
+        double freePhysicalMemorySize = 2;
+        try {
+            cores = OshiUtil.getCpuInfo().getCpuNum(); // 当前机器的cpu核数
+            cpuLoad = 100 - OshiUtil.getCpuInfo().getFree();
+            percentCpuLoad = String.format("%.2f", cpuLoad) + "%"; // 当前服务所在机器cpu使用率
+            totalVirtualMemory = OshiUtil.getMemory().getTotal(); // 当前服务所在机器总内存
+            freePhysicalMemorySize = OshiUtil.getMemory().getAvailable(); // 当前服务所在机器空闲内存
+        } catch (Exception exception) {
+            log.error("OshiUtil exception no support window operate system", exception);
+        }
 
-        double totalVirtualMemory = OshiUtil.getMemory().getTotal(); // 当前服务所在机器总内存
-        double freePhysicalMemorySize = OshiUtil.getMemory().getAvailable(); // 当前服务所在机器空闲内存
         double value = freePhysicalMemorySize / totalVirtualMemory;
         String percentMemoryLoad = String.format("%.2f", (1 - value) * 100) + "%"; // 当前服务所在机器内存使用率
 

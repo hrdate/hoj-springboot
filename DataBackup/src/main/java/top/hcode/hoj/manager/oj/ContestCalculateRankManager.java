@@ -90,7 +90,6 @@ public class ContestCalculateRankManager {
      * @MethodName calcACMRank
      * @Description TODO
      * @Return
-     * @Since 2021/12/10
      */
     public List<ACMContestRankVO> calcACMRank(boolean isOpenSealRank,
                                               boolean removeStar,
@@ -226,12 +225,12 @@ public class ContestCalculateRankManager {
                                                    Long maxSealRankTime,
                                                    List<Integer> externalCidList) {
 
-
+        // 提交记录
         List<ContestRecordVO> contestRecordList = contestRecordEntityService.getACMContestRecord(contest.getUid(),
                 contest.getId(),
                 externalCidList,
                 contest.getStartTime());
-
+        // 超级管理员
         List<String> superAdminUidList = getSuperAdminUidList(contest.getGid());
 
         List<ACMContestRankVO> result = new ArrayList<>();
@@ -250,7 +249,6 @@ public class ContestCalculateRankManager {
 
             ACMContestRankVO ACMContestRankVo;
             if (!uidMapIndex.containsKey(contestRecord.getUid())) { // 如果该用户信息没还记录
-
                 // 初始化参数
                 ACMContestRankVo = new ACMContestRankVO();
                 ACMContestRankVo.setRealname(contestRecord.getRealname())
@@ -265,6 +263,7 @@ public class ContestCalculateRankManager {
                         .setTotal(0);
 
                 HashMap<String, HashMap<String, Object>> submissionInfo = new HashMap<>();
+                // 有提交的题的提交详情
                 ACMContestRankVo.setSubmissionInfo(submissionInfo);
 
                 result.add(ACMContestRankVo);
@@ -273,19 +272,16 @@ public class ContestCalculateRankManager {
             } else {
                 ACMContestRankVo = result.get(uidMapIndex.get(contestRecord.getUid())); // 根据记录的index进行获取
             }
-
+            // 比赛中展示的题目id
             HashMap<String, Object> problemSubmissionInfo = ACMContestRankVo.getSubmissionInfo().get(contestRecord.getDisplayId());
-
             if (problemSubmissionInfo == null) {
                 problemSubmissionInfo = new HashMap<>();
                 problemSubmissionInfo.put("errorNum", 0);
             }
-
+            // 排名单总人数
             ACMContestRankVo.setTotal(ACMContestRankVo.getTotal() + 1);
-
             // 如果是当前是开启封榜的时段和同时该提交是处于封榜时段 尝试次数+1
             if (isOpenSealRank && isInSealTimeSubmission(minSealRankTime, maxSealRankTime, contestRecord.getTime())) {
-
                 int tryNum = (int) problemSubmissionInfo.getOrDefault("tryNum", 0);
                 problemSubmissionInfo.put("tryNum", tryNum + 1);
 
@@ -338,9 +334,9 @@ public class ContestCalculateRankManager {
             }
             ACMContestRankVo.getSubmissionInfo().put(contestRecord.getDisplayId(), problemSubmissionInfo);
         }
-
+        //再以总耗时升序
         List<ACMContestRankVO> orderResultList = result.stream().sorted(Comparator.comparing(ACMContestRankVO::getAc, Comparator.reverseOrder()) // 先以总ac数降序
-                .thenComparing(ACMContestRankVO::getTotalTime) //再以总耗时升序
+                .thenComparing(ACMContestRankVO::getTotalTime)
         ).collect(Collectors.toList());
 
         return orderResultList;
@@ -359,7 +355,6 @@ public class ContestCalculateRankManager {
      * @MethodName calcOIRank
      * @Description TODO
      * @Return
-     * @Since 2021/12/10
      */
     public List<OIContestRankVO> calcOIRank(boolean isOpenSealRank,
                                             boolean removeStar,
