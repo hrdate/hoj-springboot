@@ -36,22 +36,22 @@ jwt-token-expire: ${JWT_TOKEN_EXPIRE:86400}
 jwt-token-fresh-expire: ${JWT_TOKEN_FRESH_EXPIRE:43200}
 
 # 网站是否开启远程评测
-open-remote-judge: ${OPEN_REMOTE_JUDGE:true}
+open-remote-judge: false #${OPEN_REMOTE_JUDGE:true}
 # 调用评测服务的token, default表示随机生成
 judge-token: ${JUDGE_TOKEN:default}
 
 # 邮箱服务地址
-email-host: ${EMAIL_SERVER_HOST:smtp.qq.com}
+email-host: smtp.qq.com #${EMAIL_SERVER_HOST:smtp.qq.com}
 # 邮箱服务端口号
-email-port: ${EMAIL_SERVER_PORT:465}
+email-port: 465 #${EMAIL_SERVER_PORT:465}
 # 邮箱账号
 email-username: ${EMAIL_USERNAME:your_email_username}
 # 邮箱授权码
 email-password: ${EMAIL_PASSWORD:your_email_password}
 
 # 以下为各个remote judge平台的账号配置
-hdu-username-list: ${HDU_ACCOUNT_USERNAME_LIST:username1,username2}
-hdu-password-list: ${HDU_ACCOUNT_PASSWORD_LIST:password1,password2}
+hdu-username-list: ${HDU_ACCOUNT_USERNAME_LIST:}
+hdu-password-list: ${HDU_ACCOUNT_PASSWORD_LIST:}
 poj-username-list: ${POJ_ACCOUNT_USERNAME_LIST:}
 poj-password-list: ${POJ_ACCOUNT_PASSWORD_LIST:}
 cf-username-list: ${CF_ACCOUNT_USERNAME_LIST:}
@@ -133,3 +133,5 @@ logging:
       gargoylesoftware: off
     root: info
   config: classpath:logback-spring.xml
+  file:
+    path: /hoj/log/backend

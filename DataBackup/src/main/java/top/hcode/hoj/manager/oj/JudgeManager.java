@@ -141,8 +141,6 @@ public class JudgeManager {
         // 如果比赛id不等于0，则说明为比赛提交
         if (isContestSubmission) {
             beforeDispatchInitManager.initContestSubmission(judgeDto.getCid(), judgeDto.getPid(), userRolesVo, judge);
-        } else if (isTrainingSubmission) {
-            beforeDispatchInitManager.initTrainingSubmission(judgeDto.getTid(), judgeDto.getPid(), userRolesVo, judge);
         } else { // 如果不是比赛提交和训练提交
             beforeDispatchInitManager.initCommonSubmission(judgeDto.getPid(), judgeDto.getGid(), judge);
 

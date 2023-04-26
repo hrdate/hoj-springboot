@@ -23,7 +23,6 @@ import java.util.Map;
 
 /**
  *
- * @Date: 2021/1/23 13:44
  * @Description:
  */
 
@@ -164,6 +163,7 @@ public class SandboxRun {
                 throw new SystemError("Cannot connect to sandbox service.", null, ex.getResponseBodyAsString());
             }
         } catch (Exception e) {
+            // 调用沙箱错误
             throw new SystemError("Call SandBox Error.", null, e.getMessage());
         }
         return null;

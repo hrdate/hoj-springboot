@@ -8,8 +8,6 @@ import top.hcode.hoj.judge.entity.JudgeDTO;
 import top.hcode.hoj.judge.entity.JudgeGlobalDTO;
 import top.hcode.hoj.judge.entity.LanguageConfig;
 import top.hcode.hoj.judge.task.DefaultJudge;
-import top.hcode.hoj.judge.task.InteractiveJudge;
-import top.hcode.hoj.judge.task.SpecialJudge;
 import top.hcode.hoj.judge.task.TestJudge;
 import top.hcode.hoj.pojo.dto.TestJudgeReq;
 import top.hcode.hoj.pojo.dto.TestJudgeRes;
@@ -33,12 +31,6 @@ public class JudgeRun {
 
     @Resource
     private DefaultJudge defaultJudge;
-
-    @Resource
-    private SpecialJudge specialJudge;
-
-    @Resource
-    private InteractiveJudge interactiveJudge;
 
     @Resource
     private TestJudge testJudge;
@@ -391,10 +383,6 @@ public class JudgeRun {
         switch (judgeMode) {
             case DEFAULT:
                 return defaultJudge;
-            case SPJ:
-                return specialJudge;
-            case INTERACTIVE:
-                return interactiveJudge;
             default:
                 throw new RuntimeException("The problem judge mode is error:" + judgeMode);
         }

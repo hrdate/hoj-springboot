@@ -20,16 +20,16 @@ import java.util.Optional;
 @Data
 public class DruidConfigure {
 
-    @Value("${mysql-username}")
+    @Value("${mysql-username:root}")
     private String username;
 
-    @Value("${mysql-password}")
+    @Value("${mysql-password:hoj123456}")
     private String password;
 
-    @Value("${mysql-host}")
+    @Value("${mysql-host:192.168.42.131}")
     private String host;
 
-    @Value("${mysql-port}")
+    @Value("${mysql-port:3306}")
     private Integer port;
 
     @Value("${mysql-name}")

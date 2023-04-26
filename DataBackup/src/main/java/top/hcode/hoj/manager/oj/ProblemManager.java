@@ -71,9 +71,6 @@ public class ProblemManager {
     private AccessValidator accessValidator;
 
     @Autowired
-    private TrainingManager trainingManager;
-
-    @Autowired
     private ContestManager contestManager;
 
     /**
@@ -84,8 +81,12 @@ public class ProblemManager {
     public Page<ProblemVO> getProblemList(Integer limit, Integer currentPage,
                                           String keyword, List<Long> tagId, Integer difficulty, String oj) {
         // 页数，每页题数若为空，设置默认值
-        if (currentPage == null || currentPage < 1) currentPage = 1;
-        if (limit == null || limit < 1) limit = 10;
+        if (currentPage == null || currentPage < 1) {
+            currentPage = 1;
+        }
+        if (limit == null || limit < 1) {
+            limit = 10;
+        }
 
         // 关键词查询不为空
         if (!StringUtils.isEmpty(keyword)) {
@@ -369,9 +370,7 @@ public class ProblemManager {
 
     public List<ProblemFullScreenListVO> getFullScreenProblemList(Long tid, Long cid)
             throws StatusFailException, StatusForbiddenException, StatusAccessDeniedException {
-        if (tid != null) {
-            return trainingManager.getProblemFullScreenList(tid);
-        } else if (cid != null && cid != 0) {
+        if (cid != null && cid != 0) {
             return contestManager.getContestFullScreenProblemList(cid);
         } else {
             throw new StatusFailException("请求参数错误：tid或cid不能为空");

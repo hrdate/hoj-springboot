@@ -71,9 +71,6 @@ public class BeforeDispatchInitManager {
     @Resource
     private ContestValidator contestValidator;
 
-    @Resource
-    private TrainingManager trainingManager;
-
     @Autowired
     private GroupValidator groupValidator;
 
@@ -112,7 +109,6 @@ public class BeforeDispatchInitManager {
         // 将新提交数据插入数据库
         judgeEntityService.save(judge);
 
-        trainingManager.checkAndSyncTrainingRecord(problem.getId(), judge.getSubmitId(), judge.getUid());
     }
 
 
@@ -191,58 +187,6 @@ public class BeforeDispatchInitManager {
             contestRecord.setTime(DateUtil.between(contest.getStartTime(), judge.getSubmitTime(), DateUnit.SECOND));
         }
         contestRecordEntityService.save(contestRecord);
-    }
-
-
-    @Transactional(rollbackFor = Exception.class)
-    public void initTrainingSubmission(Long tid, String displayId, AccountProfile userRolesVo, Judge judge) throws StatusForbiddenException, StatusFailException, StatusAccessDeniedException {
-
-        Training training = trainingEntityService.getById(tid);
-        if (training == null || !training.getStatus()) {
-            throw new StatusFailException("该训练不存在或不允许显示！");
-        }
-
-        trainingValidator.validateTrainingAuth(training, userRolesVo);
-
-        // 查询获取对应的pid和cpid
-        QueryWrapper<TrainingProblem> trainingProblemQueryWrapper = new QueryWrapper<>();
-        trainingProblemQueryWrapper.eq("tid", tid)
-                .eq("display_id", displayId);
-        TrainingProblem trainingProblem = trainingProblemEntityService.getOne(trainingProblemQueryWrapper);
-        judge.setPid(trainingProblem.getPid());
-
-        Problem problem = problemEntityService.getById(trainingProblem.getPid());
-
-        if (problem == null){
-            throw new StatusForbiddenException("错误！当前题目已不存在，不可提交！");
-        }
-
-        if (problem.getAuth() == 2) {
-            throw new StatusForbiddenException("错误！当前题目不可提交！");
-        }
-
-        if (problem.getIsGroup()){
-            judge.setGid(problem.getGid());
-        }
-
-        judge.setDisplayPid(problem.getProblemId())
-                .setGid(training.getGid());
-
-        // 将新提交数据插入数据库
-        judgeEntityService.save(judge);
-
-        // 非私有训练不记录
-        if (!training.getAuth().equals(Constants.Training.AUTH_PRIVATE.getValue())) {
-            return;
-        }
-
-        TrainingRecord trainingRecord = new TrainingRecord();
-        trainingRecord.setPid(problem.getId())
-                .setTid(tid)
-                .setTpid(trainingProblem.getId())
-                .setSubmitId(judge.getSubmitId())
-                .setUid(userRolesVo.getUid());
-        trainingRecordEntityService.save(trainingRecord);
     }
 
 

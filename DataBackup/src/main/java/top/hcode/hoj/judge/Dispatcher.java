@@ -2,7 +2,9 @@ package top.hcode.hoj.judge;
 
 
 import cn.hutool.core.lang.UUID;
+import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,14 +99,14 @@ public class Dispatcher {
             }
             count.getAndIncrement();
             JudgeServer judgeServer = chooseUtils.chooseServer(false);
+//            JudgeServer judgeServer = null;
             if (judgeServer != null) { // 获取到判题机资源
                 CommonResult result = null;
                 try {
                     // http请求评测服务
-                    // 本地测试虚拟机局域网地址192.168.42.131
-                    result = restTemplate.postForObject("http://" + "192.168.42.131:8088" + path, data, CommonResult.class);
                     // judgeServer.getUrl()从judgeServer配置文件ip和port确定
-                    // result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
+                    log.info("restTemplate post parameter:" + JSONUtil.toJsonStr(data));
+                     result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
                 } catch (Exception e) {
                     log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e);
                 } finally {
@@ -112,7 +114,23 @@ public class Dispatcher {
                     releaseJudgeServer(judgeServer.getId());
                     releaseTaskThread(taskKey);
                 }
+            } else {
+                CommonResult result = null;
+                try {
+                    // http请求评测服务
+                    // 本地测试虚拟机局域网地址192.168.42.131
+                    log.info("restTemplate post parameter:" + JSONUtil.toJsonStr(data));
+                    // 跨越网段，需要添加vm参数 -Djava.net.preferIPv4Stack=true 仅使用IPv4进行通信即可
+                    result = restTemplate.postForObject("http://" + "192.168.42.131:8088" + path, data, CommonResult.class);
+                } catch (Exception e) {
+                    log.error("[Self Judge] Request the judge server [ 192.168.42.131:8088 ] error -------------->", e);
+                } finally {
+                    checkResult(result, submitId);
+                    releaseJudgeServer(judgeServer.getId());
+                    releaseTaskThread(taskKey);
+                }
             }
+
         };
         ScheduledFuture<?> scheduledFuture = scheduler.scheduleWithFixedDelay(getResultTask, 0, 2, TimeUnit.SECONDS);
         futureTaskMap.put(taskKey, scheduledFuture);

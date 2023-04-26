@@ -70,7 +70,7 @@ public class ContestRecord implements Serializable {
     @ApiModelProperty(value = "提交的程序运行耗时")
     private Integer useTime;
 
-    @ApiModelProperty(value = "是否为一血AC（废弃）")
+    @ApiModelProperty(value = "是否为一血AC")
     private Boolean firstBlood;
 
     @ApiModelProperty(value = "AC是否已校验")

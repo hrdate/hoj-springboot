@@ -533,6 +533,7 @@ export default {
   },
   created() {
     this.initConcernedList();
+    this.getContestRankData(1);
   },
   mounted() {
     this.contestID = this.$route.params.contestID;

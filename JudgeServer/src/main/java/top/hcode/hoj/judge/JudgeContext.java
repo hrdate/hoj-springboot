@@ -86,14 +86,6 @@ public class JudgeContext {
         return judgeStrategy.testJudge(testJudgeReq);
     }
 
-    public Boolean compileSpj(String code, Long pid, String spjLanguage, HashMap<String, String> extraFiles) throws SystemError {
-        return Compiler.compileSpj(code, pid, spjLanguage, extraFiles);
-    }
-
-    public Boolean compileInteractive(String code, Long pid, String interactiveLanguage, HashMap<String, String> extraFiles) throws SystemError {
-        return Compiler.compileInteractive(code, pid, interactiveLanguage, extraFiles);
-    }
-
 
     public void updateOtherTable(Long submitId,
                                  Integer status,

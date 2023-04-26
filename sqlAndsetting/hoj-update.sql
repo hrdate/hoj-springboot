@@ -1,7 +1,7 @@
 USE `hoj`;
 
 /*
-* 2021.08.07 修改OI题目得分在OI排行榜新计分字段 分数计算为：OI题目总得分*0.1+2*题目难度
+* 修改OI题目得分在OI排行榜新计分字段 分数计算为：OI题目总得分*0.1+2*题目难度
 */
 DROP PROCEDURE
 IF EXISTS judge_Add_oi_rank_score;

@@ -178,7 +178,7 @@ public class ScheduleServiceImpl implements ScheduleService {
      * beginTime: "2020-11-08T05:00:00Z",
      * endTime: "2020-11-08T08:00:00Z",
      */
-    @Scheduled(cron = "0 0 0/2 * * *")
+//    @Scheduled(cron = "0 0 0/2 * * *")
 //    @Scheduled(cron = "0/5 * * * * *")
     @Override
     public void getOjContestsList() {

@@ -171,7 +171,9 @@ public abstract class AbstractJudge {
 
     // 去除行末尾空白符
     protected String rtrim(String value) {
-        if (value == null) return null;
+        if (value == null) {
+            return null;
+        }
         return EOL_PATTERN.matcher(StrUtil.trimEnd(value)).replaceAll("");
     }
 }
